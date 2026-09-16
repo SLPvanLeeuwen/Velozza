@@ -66,7 +66,7 @@ function renderEventsInto(upcoming, past) {
                 ${[ev.location, ev.city, ev.country, ev.time]
                 .filter((v) => v && v.trim())
                 .join(" — ")
-                }
+            }
             </div>
             ${ev.link
                 ? `<div><a href="${ev.link}" target="_blank" class="text-blue-400 underline hover:text-red-500 transition-colors duration-300">Event Link</a></div>`
@@ -128,6 +128,22 @@ document.addEventListener('DOMContentLoaded', () => {
             .getElementById("upcomingBtn")
             .classList.add("bg-[var(--muted)]");
     });
+
+    // --- Learn more button in about section ---
+    const btn = document.getElementById('toggle-btn');
+    const content = document.getElementById('extra-content');
+
+    if (btn && content) {
+        btn.addEventListener('click', () => {
+            content.classList.toggle('hidden');
+
+            if (content.classList.contains('hidden')) {
+                btn.innerHTML = 'Learn more... ▼';
+            } else {
+                btn.innerHTML = 'Show less ▲';
+            }
+        });
+    }
 
     // --- Firestore Data Fetching ---
     const q = query(eventsColl, orderBy("date", "asc"));

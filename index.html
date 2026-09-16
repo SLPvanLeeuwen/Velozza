@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="materiaal/favicon.png" sizes="192x192" />
 
   <link rel="apple-touch-icon" href="materiaal/favicon.png" />
-  
+
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -98,34 +98,33 @@
     </div>
   </section>
 
-<section id="New" class="relative bg-[url('materiaal/humanity-logo.webp')] bg-center bg-cover text-white overflow-hidden">
-  <div class="absolute inset-0 bg-black/80 z-5"></div>
-  <div class="max-w-6xl mx-auto px-6 py-24 relative z-20">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-      
-      <div class="flex justify-center md:justify-start">
-        <img 
-          src="materiaal/humanity-logo.webp" 
-          alt="Humanity Album Cover" 
-          class="w-64 h-64 object-cover shadow-2xl transform -rotate-12 rounded-lg"
-        />
-      </div>
+  <section id="New"
+    class="relative bg-[url('materiaal/humanity-logo.webp')] bg-center bg-cover text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black/80 z-5"></div>
+    <div class="max-w-6xl mx-auto px-6 py-24 relative z-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
 
-      <div class="md:col-span-2 text-right">
-        <h2 class="text-4xl font-bold">New album, Humanity!</h2>
-        <p class="mt-4 text-gray-300 text-lg">
-          New album, humanity, is out now! To check more information and our other albums, check the discography!
-        </p>
-        <div class="mt-6">
-          <a href="discography.html" class="px-6 py-3 rounded-md border border-white/10 text-sm font-medium hover:bg-[#d11a12] hover:border-[#d11a12] transition-colors duration-300">
-            Check Discography
-          </a>
+        <div class="flex justify-center md:justify-start">
+          <img src="materiaal/humanity-logo.webp" alt="Humanity Album Cover"
+            class="w-64 h-64 object-cover shadow-2xl transform -rotate-12 rounded-lg" />
         </div>
-      </div>
 
+        <div class="md:col-span-2 text-right">
+          <h2 class="text-4xl font-bold">New album, Humanity!</h2>
+          <p class="mt-4 text-gray-300 text-lg">
+            New album, humanity, is out now! To check more information and our other albums, check the discography!
+          </p>
+          <div class="mt-6">
+            <a href="discography.html"
+              class="px-6 py-3 rounded-md border border-white/10 text-sm font-medium hover:bg-[#d11a12] hover:border-[#d11a12] transition-colors duration-300">
+              Check Discography
+            </a>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <section id="about"
     class="relative bg-[url('materiaal/velozza-022.webp')] md:bg-[url('materiaal/velozza-banner.webp')] bg-cover bg-center bg-no-repeat">
@@ -134,14 +133,63 @@
 
     <div class="max-w-6xl mx-auto px-6 py-24 relative z-20">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-        <div class="md:col-span-2">
-          <h2 class="text-3xl font-semibold">About Velozza</h2>
-          <p class="mt-4 text-gray-300">
-            Velozza is a thrash metal band from Roermond, NL, formed in 2016. 
-            The band delivers raw, high‑energy thrash rooted in the spirit of the ’80s.
-            They have shared the stage with international acts such as Gama Bomb, Lich King, and Chemicide. 
-            Fast, tight, and relentless — Velozza brings a full‑power show built for headbanging crowds.
+        <div class="md:col-span-2 space-y-4">
+
+          <!-- Main Red Heading -->
+          <h2 class="text-3xl font-semibold text-[#d11a12]">Forged in old-school thrash, sharpened by modern aggression.
+          </h2>
+
+          <!-- Intro Paragraph -->
+          <p class="text-gray-300">
+            Hailing from Roermond - the Netherlands, VELOZZA delivers fast, riff-driven metal rooted in the spirit of
+            Exodus, Kreator, and Slayer, while pushing forward as part of the NWOTM movement (New Wave Of Thrash Metal).
           </p>
+          <h3 class="font-bold text-[#d11a12] pt-2">What sets the band apart is its lineup spanning generations:</h3>
+
+          <p class="text-gray-300">
+            A well-seasoned rhythm section in their early 50s, a vocalist/guitarist in his 30s, and a lead guitarist in
+            his 20s — all sharing the same drive, intensity, and uncompromising thrash mentality. This mix of experience
+            and hunger translates directly into tight, high-energy live shows with a rare balance of precision and raw
+            aggression.
+          </p>
+
+          <!-- Learn More Button (No inline onclick needed) -->
+          <div class="pt-2">
+            <button id="toggle-btn"
+              class="inline-flex items-center font-bold text-[#d11a12] hover:text-red-400 focus:outline-none transition-colors cursor-pointer">
+              Learn more... ▼
+            </button>
+          </div>
+
+          <!-- Expandable Content -->
+          <div id="extra-content" class="hidden space-y-4 pt-2">
+            <p class="text-gray-300">
+              No gimmicks, no compromises—just pure thrash metal with conviction and intent. VELOZZA’s sound combines
+              extreme tempos (up to 210–220 BPM) with heavy, groove-driven mid-tempo crushers around 145 BPM, creating
+              dynamic sets built for maximum impact and moshpit response.
+            </p>
+
+            <p class="text-gray-300">
+              Following <em>Apocaholic</em> (2021) and <em>Bankrupt the Republic</em> (2023), the band returns with
+              their
+              strongest statement to date: <em>Humanity</em> (2026), a fully self-recorded and self-produced album. The
+              release received strong critical recognition across the international metal press, including:
+            </p>
+
+            <ul class="space-y-1 font-bold text-[#d11a12]">
+              <li>Aardschok (85/100)</li>
+              <li>Metalfan.nl (79/100)</li>
+              <li>Metallurg (95/100)</li>
+              <li>Headliner (79/100)</li>
+            </ul>
+
+            <p class="text-gray-300 pt-2">
+              VELOZZA has shared the stage with prominent acts like Sacred Reich, Angelus Apatrida, Gama Bomb, Lich
+              King,
+              D.R.I., Struck a Nerve, Chemicide, Martyr, and Mortal Sin.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
@@ -229,15 +277,20 @@
         </p>
       </div>
       <div class="flex items-center gap-4">
-        <a href="https://www.mypresskit.info/artist/velozza" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
+        <a href="https://www.mypresskit.info/artist/velozza" target="_blank"
+          class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
           <img src="materiaal/icons/presskit.svg" alt="Presskit Icon"
             class="w-7 h-7 inline-block align-text-bottom" /></a>
-        <a href="https://facebook.com/Velozzaband" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
+        <a href="https://facebook.com/Velozzaband" target="_blank"
+          class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
           <img src="materiaal/icons/facebook.svg" alt="Facebook Icon"
             class="w-7 h-7 inline-block align-text-bottom" /></a>
-        <a href="https://instagram.com/velozzaofficial" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]"><img src="materiaal/icons/instagram.svg" alt="Instagram Icon"
+        <a href="https://instagram.com/velozzaofficial" target="_blank"
+          class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]"><img
+            src="materiaal/icons/instagram.svg" alt="Instagram Icon"
             class="w-7 h-7 inline-block align-text-bottom" /></a>
-        <a href="https://velozza.bandcamp.com/" target="_blank" class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
+        <a href="https://velozza.bandcamp.com/" target="_blank"
+          class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
           <img src="materiaal/icons/bandcamp.svg" alt="Bandcamp Icon"
             class="w-7 h-7 inline-block align-text-bottom" /></a>
       </div>
@@ -264,15 +317,18 @@
           <a href="mailto:velozza@outlook.com" class="underline">velozza@outlook.com</a>
         </p>
         <p class="text-gray-300 mt-2 text-sm">
-          (Rates available upon request)
+          Booking Fee: €400,-
         </p>
       </div>
       <div class="mb-6">
-        <h4 class="text-white-300 mt-2 text-sm">Velozza is a thrash metal band from Roermond, NL, formed in 2016. 
+        <h4 class="text-white-300 mt-2 text-sm">Velozza is a thrash metal band from Roermond, NL, formed in 2016.
           The band delivers raw, high‑energy thrash rooted in the spirit of the ’80s.
-          They have shared the stage with international acts such as Gama Bomb, Lich King, and Chemicide. 
+          They have shared the stage with international acts such as Gama Bomb, Lich King, and Chemicide.
           Fast, tight, and relentless — Velozza brings a full‑power show built for headbanging crowds.
         </h4>
+        <p class="text-gray-300">
+          <strong class="text-white">For fans of:</strong> Exodus • Kreator • Slayer • Havok
+        </p>
       </div>
       <div class="mb-6">
         <h4 class="text-xl font-semibold mb-2">Official Bio</h4>
@@ -339,7 +395,7 @@
           class="inline-flex items-center justify-center px-8 py-4 bg-zinc-800 border border-white/20 text-white rounded-lg font-bold hover:bg-[#d11a12] hover:border-[#d11a12] transition duration-300 w-full md:w-auto">
           <img src="materiaal/icons/download.svg" alt="Download Icon"
             class="w-5 h-5 inline-block mr-2 align-text-bottom" />
-            Check out the full press kit on MyPressKit!
+          Check out the full press kit on MyPressKit!
         </a>
       </div>
     </div>
@@ -361,6 +417,7 @@
   </div>
 
   <script src="script.js" type="module"></script>
-  
+
 </body>
+
 </html>
