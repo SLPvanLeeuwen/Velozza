@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Velozza — Merchandise</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://js.stripe.com/v3/"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://js.stripe.com/v3/"></script>
+  <link rel="stylesheet" href="css/style.css">
   <style>
-    :root { --accent: #d11a12; }
-    body { background-color: #050505; color: white; }
-    .merch-card:hover { border-color: var(--accent); transition: 0.3s; }
+    .merch-card:hover {
+      border-color: var(--accent);
+      transition: 0.3s;
+    }
   </style>
 </head>
+
 <body class="antialiased">
 
   <header class="bg-black/90 sticky top-0 z-50 border-b border-white/10">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html"><img src="materiaal/velozza_distressed_logo-transparant2.webp" class="h-12" alt="Velozza"></a>
+      <a href="index.html"><img src="materiaal/Velozza_logo-transparant.webp" class="h-12"
+          alt="Velozza"></a>
       <nav class="space-x-4 text-sm uppercase font-bold tracking-widest">
         <a href="index.html" class="hover:text-[var(--accent)]">Home</a>
         <a href="discography.html" class="hover:text-[var(--accent)]">Music</a>
@@ -92,7 +97,7 @@
         lineItems: [{ price: priceId, quantity: 1 }],
         mode: 'payment',
         // Update these to your real URLs
-        successUrl: window.location.origin + '/success.html', 
+        successUrl: window.location.origin + '/success.html',
         cancelUrl: window.location.href,
       }).then(result => {
         if (result.error) alert(result.error.message);
@@ -100,4 +105,5 @@
     };
   </script>
 </body>
+
 </html>

@@ -1,0 +1,13 @@
+{
+  "name": "velozza-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i styles/input.css -o site/css/style.css --watch",
+    "build": "tailwindcss -i styles/input.css -o site/css/style.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}
