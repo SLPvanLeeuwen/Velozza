@@ -91,7 +91,6 @@ function renderEventsInto(upcoming, past) {
     });
 }
 
-// --- Main execution logic wrapped in DOMContentLoaded ---
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Show Toggle Logic ---
@@ -228,21 +227,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const button = event.target.closest("button");
             if (button && button.dataset.video) {
                 const videoId = button.dataset.video;
-                // Note: The `autoplay=1` parameter is included here
                 ytEmbed.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
             }
         });
     }
 
     // --- Bookings Modal Logic ---
-    const openBtn = document.getElementById("openBookingsModal");
+    const bookingButtons = document.querySelectorAll(".open-bookings-btn");
     const closeBtn = document.getElementById("closeBookingsModal");
     const modal = document.getElementById("bookingsModal");
 
-    if (openBtn && closeBtn && modal) {
-        openBtn.addEventListener("click", () => {
-            modal.classList.remove("hidden");
-            document.body.style.overflow = 'hidden';
+    if (bookingButtons && closeBtn && modal) {
+        bookingButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                modal.classList.remove("hidden");
+                document.body.style.overflow = 'hidden';
+                console.log("Open bookings modal button pressed");
+            });
         });
 
         closeBtn.addEventListener("click", () => {
