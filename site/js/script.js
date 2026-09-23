@@ -43,34 +43,51 @@ function renderEventsInto(upcoming, past) {
     pastEl.innerHTML = "";
 
     const createEventCard = (ev) => {
+        // Future-proof wallpaper support: checks ev.wallpaper or ev.poster, falls back to random generator
         const randomBgIndex = Math.floor(Math.random() * 16) + 1;
-
-        const bgUrl = `materiaal/event-achtergronden/${randomBgIndex}.webp`;
+        const bgUrl = ev.wallpaper || ev.poster || `materiaal/event-achtergronden/${randomBgIndex}.webp`;
 
         const card = document.createElement("div");
 
-        card.className = "p-3 border rounded border-white/5 relative overflow-hidden min-h-[120px]";
+        // Responsive classes: Compact line layout on mobile, rich card layout on desktop (PC)
+        card.className = "group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 shadow-xl transition hover:border-red-500/60 " +
+            "p-4 md:p-6 flex flex-col justify-between min-h-[90px] md:min-h-[260px]";
 
         card.innerHTML = `
-            <div 
-            class="absolute inset-0 bg-cover bg-center" 
-            style="background-image: url('${bgUrl}');"
-            ></div>
-            
-            <div class="absolute inset-0 bg-black/70 z-[5]"></div>
-            
-            <div class="relative z-10">
-            <div class="text-sm text-gray-400">${formatDate(ev.date)}</div>
-            <div class="font-semibold text-white">${ev.name}</div>
-            <div class="small text-gray-300">
-                ${[ev.location, ev.city, ev.country, ev.time]
-                .filter((v) => v && v.trim())
-                .join(" — ")
-            }
+            <div class="absolute inset-0 bg-cover bg-center opacity-40 md:opacity-50 group-hover:scale-105 transition duration-500" 
+                 style="background-image: url('${bgUrl}');">
             </div>
-            ${ev.link
-                ? `<div><a href="${ev.link}" target="_blank" class="text-blue-400 underline hover:text-red-500 transition-colors duration-300">Event Link</a></div>`
-                : ""
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/50 z-[5]"></div>
+            
+            <!-- Top Header: Date Badge -->
+            <div class="relative z-10 flex justify-between items-start mb-2 md:mb-4">
+                <span class="inline-block bg-red-700/20 text-red-400 border border-red-500/30 text-[11px] md:text-xs font-bold px-2.5 py-1 rounded">
+                    ${formatDate(ev.date)}
+                </span>
+                ${ev.time ? `<span class="text-xs text-gray-400 font-medium hidden md:inline-block">${ev.time}</span>` : ''}
+            </div>
+
+            <!-- Middle Content: Event Title & Location -->
+            <div class="relative z-10 space-y-1 md:space-y-2 mb-3 md:mb-4">
+                <h4 class="font-bold text-white text-base md:text-xl leading-tight group-hover:text-red-400 transition-colors">
+                    ${ev.name}
+                </h4>
+                <p class="text-xs md:text-sm text-gray-300 flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-red-500 flex-shrink-0 hidden md:inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span class="truncate">${[ev.location, ev.city, ev.country].filter((v) => v && v.trim()).join(" — ")}</span>
+                </p>
+            </div>
+
+            <!-- Bottom Footer: Event Link / Ticket Button -->
+            <div class="relative z-10 pt-2 border-t border-white/10 flex items-center justify-between">
+                <span class="text-[11px] text-gray-400 md:hidden">${ev.time || ''}</span>
+                ${ev.link
+                ? `<a href="${ev.link}" target="_blank" class="inline-flex items-center gap-1 text-xs font-bold text-white bg-red-600 hover:bg-red-700 px-3 py-1.5 rounded transition shadow cursor-pointer">
+                          <span>Tickets / Info</span>
+                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                       </a>`
+                : `<span class="text-xs text-gray-500 italic">Details soon</span>`
             }
             </div>
         `;
@@ -78,20 +95,27 @@ function renderEventsInto(upcoming, past) {
     };
 
     if (upcoming.length === 0)
-        upEl.innerHTML =
-            '<div class="text-gray-500">No upcoming shows.</div>';
+        upEl.innerHTML = '<div class="text-gray-500 col-span-full py-4 text-center">No upcoming shows scheduled.</div>';
     upcoming.forEach((ev) => {
         upEl.appendChild(createEventCard(ev));
     });
 
     if (past.length === 0)
-        pastEl.innerHTML = '<div class="text-gray-500">No past shows.</div>';
+        pastEl.innerHTML = '<div class="text-gray-500 col-span-full py-4 text-center">No past shows recorded.</div>';
     past.forEach((ev) => {
         pastEl.appendChild(createEventCard(ev));
     });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+
+
+    document.getElementById('scroll-left')?.addEventListener('click', () => {
+        document.getElementById('spotify-carousel')?.scrollBy({ left: -340, behavior: 'smooth' });
+    });
+    document.getElementById('scroll-right')?.addEventListener('click', () => {
+        document.getElementById('spotify-carousel')?.scrollBy({ left: 340, behavior: 'smooth' });
+    });
 
     // --- Show Toggle Logic ---
     document.getElementById("upcomingBtn").addEventListener("click", () => {
