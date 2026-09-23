@@ -67,7 +67,7 @@
         ">Contact</a>
 
             <button
-              class="open-bookings-btn px-6 py-3 rounded-md border border-white/10 bg-[#d11a12] hover:bg-zinc-800 text-sm font-medium hover:border-white/20 transition-colors duration-300">
+              class="open-bookings-btn px-6 py-3 rounded-md border border-white/10 bg-zinc-800 hover:bg-zinc-700 hover:border-red-500 transition group">
               Bookings
             </button>
           </div>
@@ -75,18 +75,17 @@
       </div>
     </header>
 
-    <div class="hero-logo absolute inset-0 flex items-center justify-center mt-56">
-      <img src="materiaal/Velozza_logo-transparant.webp" alt="Velozza Logo" class="w-full max-w-[700px] glow" />
-    </div>
-
     <div class="absolute inset-0 flex flex-col items-center justify-end pb-20 z-30">
-      <p class="mt-6 text-gray-300 max-w-2xl mx-auto">
+      <div class="hero-logo absolute inset-0 flex items-center justify-center mt-56">
+        <img src="materiaal/Velozza_logo-transparant.webp" alt="Velozza Logo" class="w-full max-w-[700px] glow" />
+      </div>
+      <p class="text-sm sm:text-base leading-relaxed mb-4">
         Raw uncompromising thrash from the Netherlands. New full-length album OUT NOW!!
       </p>
       <div class="mt-8 flex justify-center gap-4">
         <button
-          class="open-bookings-btn px-6 py-3 rounded-md border border-white/10 text-sm font-medium hover:bg-[#d11a12] hover:border-[#d11a12] transition-colors duration-300">
-          Bookings
+          class="open-bookings-btn flex-1 min-w-[200px] flex items-center justify-center px-4 py-3 bg-zinc-800 border border-zinc-600 text-white rounded-md hover:bg-zinc-700 hover:border-red-500 transition group">
+          <span class="font-semibold text-sm">Bookings</span>
         </button>
       </div>
       <div class="mt-8 flex justify-center gap-4">
@@ -121,9 +120,11 @@
           </p>
           <div class="mt-6">
             <a href="discography.html"
-              class="px-6 py-3 rounded-md border border-white/10 text-sm font-medium hover:bg-[#d11a12] hover:border-[#d11a12] transition-colors duration-300">
-              Check Discography
+              class="px-6 py-3 rounded-md border border-white/10 bg-zinc-800 hover:bg-zinc-700 hover:border-red-500 transition group">
+              <span class="font-semibold text-sm">Check Discography</span>
             </a>
+
+
           </div>
         </div>
 
@@ -142,62 +143,53 @@
     <div class="max-w-6xl mx-auto px-6 py-24 relative z-20">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         <div class="md:col-span-2 space-y-4">
-
-          <!-- Main Red Heading -->
-          <h2 class="text-3xl font-semibold text-[#d11a12]">Forged in old-school thrash, sharpened by modern aggression.
-          </h2>
-
-          <!-- Intro Paragraph -->
+          <div class="items-center justify-between gap-3 bg-zinc-800 border border-zinc-700 rounded-lg py-2 px-6 w-fit">
+            <span class="text-4xl font-semibold text-[#d11a12] glow">About velozza:</span>
+            <p class="text-m font-semibold text-white glow">Forged in old-school thrash, sharpened by modern
+              aggression.
+            </p>
+          </div>
           <p class="text-gray-300">
             Hailing from Roermond - the Netherlands, VELOZZA delivers fast, riff-driven metal rooted in the spirit of
             Exodus, Kreator, and Slayer, while pushing forward as part of the NWOTM movement (New Wave Of Thrash Metal).
           </p>
           <h3 class="font-bold text-[#d11a12] pt-2">What sets the band apart is its lineup spanning generations:</h3>
-
           <p class="text-gray-300">
             A well-seasoned rhythm section in their early 50s, a vocalist/guitarist in his 30s, and a lead guitarist in
             his 20s — all sharing the same drive, intensity, and uncompromising thrash mentality. This mix of experience
             and hunger translates directly into tight, high-energy live shows with a rare balance of precision and raw
             aggression.
           </p>
-
-          <!-- Learn More Button (No inline onclick needed) -->
           <div class="pt-2">
             <button id="toggle-btn"
               class="inline-flex items-center font-bold text-[#d11a12] hover:text-red-400 focus:outline-none transition-colors cursor-pointer">
               Learn more... ▼
             </button>
           </div>
-
-          <!-- Expandable Content -->
           <div id="extra-content" class="hidden space-y-4 pt-2">
             <p class="text-gray-300">
               No gimmicks, no compromises—just pure thrash metal with conviction and intent. VELOZZA’s sound combines
               extreme tempos (up to 210–220 BPM) with heavy, groove-driven mid-tempo crushers around 145 BPM, creating
               dynamic sets built for maximum impact and moshpit response.
             </p>
-
             <p class="text-gray-300">
               Following <em>Apocaholic</em> (2021) and <em>Bankrupt the Republic</em> (2023), the band returns with
               their
               strongest statement to date: <em>Humanity</em> (2026), a fully self-recorded and self-produced album. The
               release received strong critical recognition across the international metal press, including:
             </p>
-
             <ul class="space-y-1 font-bold text-[#d11a12]">
               <li>Aardschok (85/100)</li>
               <li>Metalfan.nl (79/100)</li>
               <li>Metallurg (95/100)</li>
               <li>Headliner (79/100)</li>
             </ul>
-
             <p class="text-gray-300 pt-2">
               VELOZZA has shared the stage with prominent acts like Sacred Reich, Angelus Apatrida, Gama Bomb, Lich
               King,
               D.R.I., Struck a Nerve, Chemicide, Martyr, and Mortal Sin.
             </p>
           </div>
-
         </div>
       </div>
     </div>
@@ -221,13 +213,16 @@
         <div>
           <h4 class="text-sm uppercase text-gray-400 mb-3">YouTube</h4>
           <div class="mt-4 grid grid-cols-3 gap-3" id="yt-thumbs">
-            <button data-video="B5QF83CZvEI" class="block bg-white/3 p-3 rounded text-center text-xs">
+            <button data-video="B5QF83CZvEI"
+              class="block p-2 text-xs font-semibold rounded-md border border-white/10 bg-zinc-800 hover:bg-zinc-700 hover:border-red-500 transition group">
               Play video 1
             </button>
-            <button data-video="Fk4BFv5bayM" class="block bg-white/3 p-3 rounded text-center text-xs">
+            <button data-video="Fk4BFv5bayM"
+              class="block p-2 text-xs font-semibold rounded-md border border-white/10 bg-zinc-800 hover:bg-zinc-700 hover:border-red-500 transition group">
               Play video 2
             </button>
-            <button data-video="2C4_i7uBcJs" class="block bg-white/3 p-3 rounded text-center text-xs">
+            <button data-video="2C4_i7uBcJs"
+              class="block p-2 text-xs font-semibold rounded-md border border-white/10 bg-zinc-800 hover:bg-zinc-700 hover:border-red-500 transition group">
               Play video 3
             </button>
           </div>
@@ -247,10 +242,12 @@
     <h3 class="text-2xl font-semibold mb-4">Shows</h3>
 
     <div class="flex gap-4 mb-6">
-      <button id="upcomingBtn" class="px-4 py-2 bg-[var(--accent)] text-white text-sm rounded">
+      <button id="upcomingBtn"
+        class="px-4 py-2 border border-white/10 bg-[var(--accent)] hover:bg-zinc-800 hover:border-red-500 text-white font-semibold text-sm rounded-md transition group">
         Upcoming Shows
       </button>
-      <button id="pastBtn" class="px-4 py-2 bg-[var(--accent)] text-white text-sm rounded">
+      <button id="pastBtn"
+        class="px-4 py-2 border border-white/10 bg-[var(--accent)] hover:bg-zinc-800 hover:border-red-500 text-white font-semibold text-sm rounded-md transition group">
         Past Shows
       </button>
     </div>
@@ -271,7 +268,7 @@
         through Bandcamp.
       </p>
       <a href="https://velozza.bandcamp.com/merch" target="_blank"
-        class="inline-block px-8 py-3 bg-[var(--accent)] text-white rounded font-semibold hover:bg-red-700 transition">Visit
+        class="inline-block px-8 py-3 rounded-md border border-white/10 bg-zinc-800 hover:bg-zinc-700 hover:border-red-500 transition group">Visit
         Merch Store</a>
     </div>
   </section>
@@ -294,6 +291,10 @@
           class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
           <img src="materiaal/icons/presskit.svg" alt="Presskit Icon"
             class="w-7 h-7 inline-block align-text-bottom" /></a>
+        <a href="https://velozza.bandcamp.com/" target="_blank"
+          class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
+          <img src="materiaal/icons/bandcamp.svg" alt="Bandcamp Icon"
+            class="w-7 h-7 inline-block align-text-bottom" /></a>
         <a href="https://facebook.com/Velozzaband" target="_blank"
           class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
           <img src="materiaal/icons/facebook.svg" alt="Facebook Icon"
@@ -301,10 +302,6 @@
         <a href="https://instagram.com/velozzaofficial" target="_blank"
           class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
           <img src="materiaal/icons/instagram.svg" alt="Instagram Icon"
-            class="w-7 h-7 inline-block align-text-bottom" /></a>
-        <a href="https://velozza.bandcamp.com/" target="_blank"
-          class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
-          <img src="materiaal/icons/bandcamp.svg" alt="Bandcamp Icon"
             class="w-7 h-7 inline-block align-text-bottom" /></a>
         <a href="https://open.spotify.com/artist/1jnRNkkxVD5IHcPbOa3u0W" target="_blank"
           class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
