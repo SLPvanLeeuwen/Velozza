@@ -89,6 +89,8 @@
           class="p-3 bg-zinc-900 border border-zinc-700 rounded" />
         <input type="text" id="eventLink" placeholder="Ticket link (optional)"
           class="p-3 bg-zinc-900 border border-zinc-700 rounded" />
+        <input type="file" id="eventPoster" accept="image/png, image/jpeg, image/webp"
+          class="p-3 bg-zinc-900 border border-zinc-700 rounded text-sm text-zinc-400 file:mr-3 file:py-2 file:px-3 file:rounded file:border-0 file:bg-[var(--accent)] file:text-white file:cursor-pointer" />
       </div>
       <div class="flex items-center gap-3 mt-3">
         <button id="saveEvent" class="px-4 py-2 bg-[var(--accent)] rounded hover:bg-red-700">Save Event</button>
@@ -116,6 +118,8 @@
         <input id="editCountry" type="text" class="p-3 bg-black border border-zinc-700 rounded" />
         <input id="editTime" type="text" class="p-3 bg-black border border-zinc-700 rounded" />
         <input id="editLink" type="text" class="p-3 bg-black border border-zinc-700 rounded" />
+        <input type="file" id="editPoster" accept="image/png, image/jpeg, image/webp"
+          class="p-3 bg-black border border-zinc-700 rounded text-sm text-zinc-400" />
       </div>
 
       <div class="flex justify-between items-center gap-3 mt-4">
@@ -189,6 +193,7 @@
     const eventCountry = document.getElementById('eventCountry');
     const eventTime = document.getElementById('eventTime');
     const eventLink = document.getElementById('eventLink');
+    const eventPosterInput = document.getElementById('eventPoster');
     const saveEvent = document.getElementById('saveEvent');
     const saveMsg = document.getElementById('saveMsg');
 
@@ -203,10 +208,12 @@
     const editCountry = document.getElementById('editCountry');
     const editTime = document.getElementById('editTime');
     const editLink = document.getElementById('editLink');
+    const editPosterInput = document.getElementById('editPoster');
     const cancelEdit = document.getElementById('cancelEdit');
     const saveEdit = document.getElementById('saveEdit');
     const deleteEdit = document.getElementById('deleteEdit');
 
+    let currentEditPoster = '';
     let currentEditId = null;
 
     onAuthStateChanged(auth, (user) => {
@@ -297,25 +304,46 @@
       const country = eventCountry.value.trim();
       const time = eventTime.value.trim();
       const link = eventLink.value.trim();
+      const posterFile = eventPosterInput.files[0];
 
       if (!date || !name || !location) {
         saveMsg.textContent = 'Missing required fields.';
         return;
       }
 
+      saveEvent.disabled = true;
+      saveMsg.textContent = posterFile ? 'Uploading poster...' : 'Saving...';
+
       try {
+        const poster = posterFile ? await uploadPoster(posterFile) : '';
+
         await addDoc(collection(db, 'events'), {
-          date, name, location, city, country, time, link,
+          date, name, location, city, country, time, link, poster,
           createdAt: Date.now()
         });
         saveMsg.textContent = 'Event saved!';
         setTimeout(() => saveMsg.textContent = '', 2500);
         eventDate.value = eventName.value = eventLocation.value = eventCity.value = eventCountry.value = eventTime.value = eventLink.value = '';
+        eventPosterInput.value = '';
       } catch (err) {
         console.error('Add doc error', err);
         saveMsg.textContent = 'Could not save event.';
+      } finally {
+        saveEvent.disabled = false;
       }
     });
+
+    async function uploadPoster(file) {
+      const token = await auth.currentUser.getIdToken();
+      const res = await fetch('https://velozza-poster-upload.stijntjevanleeuwen.workers.dev', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': file.type },
+        body: file,
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const data = await res.json();
+      return data.url;
+    }
 
     function setupProductList() {
       const q = query(collection(db, 'products'), orderBy('createdAt', 'desc'));
@@ -411,6 +439,8 @@
         editCountry.value = e.country || '';
         editTime.value = e.time || '';
         editLink.value = e.link || '';
+        currentEditPoster = e.poster || '';
+        editPosterInput.value = '';
 
         editModal.classList.remove('hidden');
       } catch (err) {
@@ -446,6 +476,10 @@
 
     saveEdit.addEventListener('click', async () => {
       if (!currentEditId) return;
+
+      const posterFile = editPosterInput.files[0];
+      const poster = posterFile ? await uploadPoster(posterFile) : currentEditPoster;
+
       const payload = {
         date: editDate.value,
         name: editName.value.trim(),
@@ -453,7 +487,8 @@
         city: editCity.value.trim(),
         country: editCountry.value.trim(),
         time: editTime.value.trim(),
-        link: editLink.value.trim()
+        link: editLink.value.trim(),
+        poster
       };
 
       if (!payload.date || !payload.name || !payload.location) {
@@ -480,6 +515,7 @@
         return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
       });
     }
+
   </script>
 </body>
 
