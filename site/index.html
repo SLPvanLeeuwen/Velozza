@@ -193,27 +193,140 @@
           </div>
         </div>
         <div
-          class="md:col-span-1 bg-zinc-900/90 border border-zinc-700/80 rounded-xl p-6 shadow-2xl backdrop-blur-md sticky top-6">
-          <div class=" border-zinc-800">
-            <h5 class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-3">Critical Press Acclaim</h5>
-            <ul class="space-y-2 text-xs">
-              <li class="flex justify-between items-center bg-zinc-800/60 p-2 rounded border border-white/5">
-                <span class="text-gray-300 font-medium">Metallurg</span>
-                <span class="font-bold text-[#d11a12]">95/100</span>
-              </li>
-              <li class="flex justify-between items-center bg-zinc-800/60 p-2 rounded border border-white/5">
-                <span class="text-gray-300 font-medium">Aardschok</span>
-                <span class="font-bold text-[#d11a12]">85/100</span>
-              </li>
-              <li class="flex justify-between items-center bg-zinc-800/60 p-2 rounded border border-white/5">
-                <span class="text-gray-300 font-medium">Metalfan.nl</span>
-                <span class="font-bold text-[#d11a12]">79/100</span>
-              </li>
-              <li class="flex justify-between items-center bg-zinc-800/60 p-2 rounded border border-white/5">
-                <span class="text-gray-300 font-medium">Headliner</span>
-                <span class="font-bold text-[#d11a12]">79/100</span>
-              </li>
-            </ul>
+          class="md:col-span-1 bg-zinc-900/90 border border-zinc-700/80 rounded-xl p-5 shadow-2xl backdrop-blur-md sticky top-6 space-y-5">
+
+          <!-- Section 1: Numerical Scores -->
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <h5 class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Album Scores</h5>
+              <span
+                class="text-[10px] text-zinc-400 font-mono bg-zinc-800 px-2 py-0.5 rounded border border-white/5">Press</span>
+            </div>
+
+            <!-- 2x2 Grid to keep scores compact -->
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div class="flex justify-between items-center bg-zinc-800/60 p-2 rounded border border-white/5">
+                <span class="text-gray-300 font-medium truncate mr-1">Metallurg</span>
+                <span class="font-bold text-[#d11a12] shrink-0">95/100</span>
+              </div>
+              <div class="flex justify-between items-center bg-zinc-800/60 p-2 rounded border border-white/5">
+                <span class="text-gray-300 font-medium truncate mr-1">Aardschok</span>
+                <span class="font-bold text-[#d11a12] shrink-0">85/100</span>
+              </div>
+              <div class="flex justify-between items-center bg-zinc-800/60 p-2 rounded border border-white/5">
+                <span class="text-gray-300 font-medium truncate mr-1">Metalfan.nl</span>
+                <span class="font-bold text-[#d11a12] shrink-0">79/100</span>
+              </div>
+              <div class="flex justify-between items-center bg-zinc-800/60 p-2 rounded border border-white/5">
+                <span class="text-gray-300 font-medium truncate mr-1">Headliner</span>
+                <span class="font-bold text-[#d11a12] shrink-0">79/100</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="border-zinc-800" />
+
+          <!-- Section 2: Live Press Quotes -->
+          <div>
+            <h5 class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-3">Live Acclaim</h5>
+
+            <!-- Scrollable container so it doesn't break sticky sidebar height -->
+            <div class="space-y-3 max-h-[420px] overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-zinc-700">
+
+              <!-- Quote Item -->
+              <blockquote
+                class="bg-zinc-800/40 p-3 rounded-lg border-l-2 border-[#d11a12] border-y border-r border-white/5 relative">
+                <p class="text-xs text-zinc-200 italic mb-2 leading-relaxed">
+                  "Velozza delivers a solid show and demonstrates why they are regularly booked to support major bands."
+                </p>
+                <footer
+                  class="flex justify-between items-center text-[10px] text-zinc-400 font-medium pt-1 border-t border-zinc-800">
+                  <span class="text-zinc-300 font-semibold">Eindhoven Rockcity</span>
+                  <span>18-09-2026</span>
+                </footer>
+              </blockquote>
+
+              <!-- Quote Item -->
+              <blockquote
+                class="bg-zinc-800/40 p-3 rounded-lg border-l-2 border-[#d11a12] border-y border-r border-white/5 relative">
+                <p class="text-xs text-zinc-200 italic mb-2 leading-relaxed">
+                  "Forty minutes of pure, old-school thrash that is perfect for headbanging."
+                </p>
+                <footer
+                  class="flex justify-between items-center text-[10px] text-zinc-400 font-medium pt-1 border-t border-zinc-800">
+                  <span class="text-zinc-300 font-semibold">Tempelores Magazine</span>
+                  <span>18-09-2026</span>
+                </footer>
+              </blockquote>
+
+              <!-- Quote Item -->
+              <blockquote
+                class="bg-zinc-800/40 p-3 rounded-lg border-l-2 border-[#d11a12] border-y border-r border-white/5 relative">
+                <p class="text-xs text-zinc-200 italic mb-2 leading-relaxed">
+                  "Velozza shows no mercy. Driven by a formidable guitar tandem, the band charges forward with great
+                  solos."
+                </p>
+                <footer
+                  class="flex justify-between items-center text-[10px] text-zinc-400 font-medium pt-1 border-t border-zinc-800">
+                  <span class="text-zinc-300 font-semibold">3voor12 Leiden</span>
+                  <span>04-09-2026</span>
+                </footer>
+              </blockquote>
+
+              <!-- Quote Item -->
+              <blockquote
+                class="bg-zinc-800/40 p-3 rounded-lg border-l-2 border-[#d11a12] border-y border-r border-white/5 relative">
+                <p class="text-xs text-zinc-200 italic mb-2 leading-relaxed">
+                  "VELOZZA's salute to San Francisco is definitely a performance you'd gladly experience again. Killer
+                  gig."
+                </p>
+                <footer
+                  class="flex justify-between items-center text-[10px] text-zinc-400 font-medium pt-1 border-t border-zinc-800">
+                  <span class="text-zinc-300 font-semibold">Powermetal.de</span>
+                  <span>14-08-2026</span>
+                </footer>
+              </blockquote>
+
+              <!-- Quote Item -->
+              <blockquote
+                class="bg-zinc-800/40 p-3 rounded-lg border-l-2 border-[#d11a12] border-y border-r border-white/5 relative">
+                <p class="text-xs text-zinc-200 italic mb-2 leading-relaxed">
+                  "The four-piece is razor-sharp, energetically working every corner of the stage."
+                </p>
+                <footer
+                  class="flex justify-between items-center text-[10px] text-zinc-400 font-medium pt-1 border-t border-zinc-800">
+                  <span class="text-zinc-300 font-semibold">X-Crash</span>
+                  <span>14-08-2026</span>
+                </footer>
+              </blockquote>
+
+              <!-- Quote Item -->
+              <blockquote
+                class="bg-zinc-800/40 p-3 rounded-lg border-l-2 border-[#d11a12] border-y border-r border-white/5 relative">
+                <p class="text-xs text-zinc-200 italic mb-2 leading-relaxed">
+                  "The crowd quickly comes alive, and Velozza proves to be an excellent opener for the night."
+                </p>
+                <footer
+                  class="flex justify-between items-center text-[10px] text-zinc-400 font-medium pt-1 border-t border-zinc-800">
+                  <span class="text-zinc-300 font-semibold">Metal, Prog, Rock & Gothic</span>
+                  <span>04-08-2026</span>
+                </footer>
+              </blockquote>
+
+              <!-- Quote Item -->
+              <blockquote
+                class="bg-zinc-800/40 p-3 rounded-lg border-l-2 border-[#d11a12] border-y border-r border-white/5 relative">
+                <p class="text-xs text-zinc-200 italic mb-2 leading-relaxed">
+                  "The Roermond heroes are masters of total control in their music and complete madness on the floor."
+                </p>
+                <footer
+                  class="flex justify-between items-center text-[10px] text-zinc-400 font-medium pt-1 border-t border-zinc-800">
+                  <span class="text-zinc-300 font-semibold">Never Mind The Hype</span>
+                  <span>17-01-2026</span>
+                </footer>
+              </blockquote>
+
+            </div>
           </div>
         </div>
       </div>
@@ -459,7 +572,8 @@
           <div class="md:col-span-2 flex flex-col justify-center">
             <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
               Formed in 2016 in Roermond, NL, Velozza delivers uncompromising thrash metal. Having shared the stage with
-              international acts such as <strong class="text-white">Gama Bomb, Lich King, and Chemicide</strong>, they
+              international acts such as <strong class="text-white">Sacred Reich, D.R.I., Angelus Apatrida, Gama Bomb,
+                Lich King, and Chemicide</strong>, they
               know how to command a crowd. Fast, tight, and relentless — Velozza brings a full-power show built for
               headbanging crowds.
             </p>
@@ -601,6 +715,13 @@
               <img src="materiaal/icons/download-cloud.svg" alt="Download Icon"
                 class="w-4 h-4 inline-block mr-1 align-text-bottom opacity-70" />
               Videos (MP4)
+            </a>
+            <a href="https://github.com/SLPvanLeeuwen/Velozza/releases/latest/download/velozza-press-quotes.pdf"
+              target="_blank"
+              class="flex-1 min-w-[180px] text-center px-3 py-2 bg-zinc-800/80 border border-white/10 text-gray-300 rounded text-xs hover:bg-zinc-700 hover:text-white transition">
+              <img src="materiaal/icons/download-cloud.svg" alt="Download Icon"
+                class="w-4 h-4 inline-block mr-1 align-text-bottom opacity-70" />
+              Press quotes (PDF)
             </a>
           </div>
         </div>
