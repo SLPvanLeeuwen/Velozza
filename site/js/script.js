@@ -117,57 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('spotify-carousel')?.scrollBy({ left: 340, behavior: 'smooth' });
     });
 
-    // --- Show Toggle Logic ---
-    document.getElementById("upcomingBtn").addEventListener("click", () => {
-        document.getElementById("upcomingList").classList.remove("hidden");
-        document.getElementById("pastList").classList.add("hidden");
-        document
-            .getElementById("upcomingBtn")
-            .classList.add("bg-[var(--accent)]");
-        document
-            .getElementById("upcomingBtn")
-            .classList.remove("bg-[var(--muted)]");
-        document
-            .getElementById("pastBtn")
-            .classList.remove("bg-[var(--accent)]");
-        document
-            .getElementById("pastBtn")
-            .classList.add("bg-[var(--muted)]");
-    });
-
-    document.getElementById("pastBtn").addEventListener("click", () => {
-        document.getElementById("pastList").classList.remove("hidden");
-        document.getElementById("upcomingList").classList.add("hidden");
-        document
-            .getElementById("pastBtn")
-            .classList.add("bg-[var(--accent)]");
-        document
-            .getElementById("pastBtn")
-            .classList.remove("bg-[var(--muted)]");
-        document
-            .getElementById("upcomingBtn")
-            .classList.remove("bg-[var(--accent)]");
-        document
-            .getElementById("upcomingBtn")
-            .classList.add("bg-[var(--muted)]");
-    });
-
-    // --- Learn more button in about section ---
-    const btn = document.getElementById('toggle-btn');
-    const content = document.getElementById('extra-content');
-
-    if (btn && content) {
-        btn.addEventListener('click', () => {
-            content.classList.toggle('hidden');
-
-            if (content.classList.contains('hidden')) {
-                btn.innerHTML = 'Learn more... ▼';
-            } else {
-                btn.innerHTML = 'Show less ▲';
-            }
-        });
-    }
-
     // --- Firestore Data Fetching ---
     const q = query(eventsColl, orderBy("date", "asc"));
     onSnapshot(
@@ -189,58 +138,100 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     );
 
-    // Initial click to show upcoming shows (must be after all show elements exist)
-    document.getElementById("upcomingBtn").click();
+    // --- Show Toggle Logic ---
+    const upcomingBtn = document.getElementById("upcomingBtn");
+    const pastBtn = document.getElementById("pastBtn");
+    const upcomingList = document.getElementById("upcomingList");
+    const pastList = document.getElementById("pastList");
+
+    if (upcomingBtn && pastBtn && upcomingList && pastList) {
+        upcomingBtn.addEventListener("click", () => {
+            upcomingList.classList.remove("hidden");
+            pastList.classList.add("hidden");
+            upcomingBtn.classList.add("bg-[var(--accent)]");
+            upcomingBtn.classList.remove("bg-[var(--muted)]");
+            pastBtn.classList.remove("bg-[var(--accent)]");
+            pastBtn.classList.add("bg-[var(--muted)]");
+        });
+
+        pastBtn.addEventListener("click", () => {
+            pastList.classList.remove("hidden");
+            upcomingList.classList.add("hidden");
+            pastBtn.classList.add("bg-[var(--accent)]");
+            pastBtn.classList.remove("bg-[var(--muted)]");
+            upcomingBtn.classList.remove("bg-[var(--accent)]");
+            upcomingBtn.classList.add("bg-[var(--muted)]");
+        });
+
+        // Initial click to show upcoming shows
+        upcomingBtn.click();
+    }
+    // --- Learn more button in about section ---
+    const btn = document.getElementById('toggle-btn');
+    const content = document.getElementById('extra-content');
+
+    if (btn && content) {
+        btn.addEventListener('click', () => {
+            content.classList.toggle('hidden');
+
+            if (content.classList.contains('hidden')) {
+                btn.innerHTML = 'Learn more... ▼';
+            } else {
+                btn.innerHTML = 'Show less ▲';
+            }
+        });
+    }
 
     // --- Scroll & Header Logic ---
     const header = document.getElementById("mainHeader");
     const backToTopBtn = document.getElementById("backToTopBtn");
 
-    const scrollThreshold = 200;
-    const backgroundThreshold = 100;
-    const buttonThreshold = 400;
+    if (header && backToTopBtn) {
+        const scrollThreshold = 200;
+        const backgroundThreshold = 100;
+        const buttonThreshold = 400;
 
-    let lastScrollY = window.scrollY;
+        let lastScrollY = window.scrollY;
 
-    function handleScroll() {
-        const currentScrollY = window.scrollY;
+        function handleScroll() {
+            const currentScrollY = window.scrollY;
 
-        if (currentScrollY > scrollThreshold) {
-            if (currentScrollY > lastScrollY) {
-                header.classList.add("header-hidden");
-            } else if (currentScrollY < lastScrollY) {
+            if (currentScrollY > scrollThreshold) {
+                if (currentScrollY > lastScrollY) {
+                    header.classList.add("header-hidden");
+                } else if (currentScrollY < lastScrollY) {
+                    header.classList.remove("header-hidden");
+                }
+            }
+
+            if (currentScrollY <= scrollThreshold) {
                 header.classList.remove("header-hidden");
             }
+
+            if (currentScrollY > backgroundThreshold) {
+                header.classList.add("bg-black/80", "shadow-lg");
+            } else {
+                header.classList.remove("bg-black/80", "shadow-lg");
+            }
+
+            if (currentScrollY > buttonThreshold) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.add('opacity-100');
+            } else {
+                backToTopBtn.classList.remove('opacity-100');
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            }
+
+            lastScrollY = currentScrollY;
         }
 
-        if (currentScrollY <= scrollThreshold) {
-            header.classList.remove("header-hidden");
-        }
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
 
-        if (currentScrollY > backgroundThreshold) {
-            header.classList.add("bg-black/80", "shadow-lg");
-        } else {
-            header.classList.remove("bg-black/80", "shadow-lg");
-        }
-
-        if (currentScrollY > buttonThreshold) {
-            backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-            backToTopBtn.classList.add('opacity-100');
-        } else {
-            backToTopBtn.classList.remove('opacity-100');
-            backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-        }
-
-        lastScrollY = currentScrollY;
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
     }
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    handleScroll();
-
-    backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
 
     // --- YouTube Embed Logic ---
     const ytThumbs = document.getElementById("yt-thumbs");

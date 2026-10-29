@@ -14,47 +14,78 @@
   </style>
 </head>
 
-<body class="bg-[#050505] text-white min-h-screen max-w-6xl mx-auto overflow-x-hidden">
-  
-  <!-- Navigation -->
-  <nav class="max-w-6xl mx-auto px-6 py-6">
-    <a href="index.html" class="inline-flex items-center text-zinc-400 hover:text-white transition-colors group text-sm font-semibold">
-      <span class="mr-2 transition-transform group-hover:-translate-x-1">←</span>
-      Back to Home
-    </a>
-  </nav>
+<body class="bg-[#050505] text-white min-h-screen antialiased leading-relaxed">
+  <header id="mainHeader" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 hidden sm:block">
+    <div class="max-w-6xl mx-auto px-12 py-4">
+      <nav class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="inline-block">
+            <img src="materiaal/Velozza_logo-transparant.webp" alt="Velozza" class="h-16 glow cursor-pointer" />
+          </a>
+          <div class="text-sm text-gray-300">
+            Velozza — Thrash Metal from Roermond
+          </div>
+        </div>
 
-  <!-- Main Container -->
-  <main class="max-w-6xl mx-auto px-6 pb-20">
-    
-    <!-- Header -->
-    <header class="mb-12 border-b border-zinc-800 pb-8">
+        <div class="space-x-1 text-sm">
+          <a href="index.html#about"
+            class="font-semibold inline-block text-gray-300 px-3 py-2 rounded-lg transition-colors duration-300 hover:bg-[#d11a12] hover:text-white">About</a>
+          <a href="discography.html"
+            class="font-semibold inline-block text-gray-300 px-3 py-2 rounded-lg transition-colors duration-300 hover:bg-[#d11a12] hover:text-white">Music</a>
+          <a href="index.html#shows"
+            class="font-semibold inline-block text-gray-300 px-3 py-2 rounded-lg transition-colors duration-300 hover:bg-[#d11a12] hover:text-white">Shows</a>
+          <a href="index.html#merch"
+            class="font-semibold inline-block text-gray-300 px-3 py-2 rounded-lg transition-colors duration-300 hover:bg-[#d11a12] hover:text-white">Merch</a>
+          <a href="index.html#contact"
+            class="font-semibold inline-block text-gray-300 px-3 py-2 rounded-lg transition-colors duration-300 hover:bg-[#d11a12] hover:text-white">Contact</a>
+
+          <button
+            class="open-bookings-btn px-6 py-3 font-semibold rounded-md border border-white/10 bg-zinc-800 hover:bg-zinc-700 hover:border-red-500 transition group">
+            Bookings
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 pt-18 pb-20">
+    <section class="mb-12 border-b border-zinc-800 pb-8">
       <div class="flex items-center gap-3 mb-3">
-        <span class="text-xs uppercase tracking-widest bg-red-700/20 text-red-400 font-bold px-2.5 py-1 rounded border border-red-500/30">Official Releases</span>
+        <span
+          class="text-xs uppercase tracking-widest bg-red-700/20 text-red-400 font-bold px-2.5 py-1 rounded border border-red-500/30 mt-6">Official
+          Releases</span>
       </div>
       <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-wider mb-3">Discography</h1>
       <p class="text-zinc-400 text-base max-w-2xl leading-relaxed">
-        A journey through our sound. From our earliest singles and EPs to our latest full-length album, <em class="text-white">Humanity</em> (2026).
+        A journey through our sound. From our earliest singles and EPs to our latest full-length album, <em
+          class="text-white">Humanity</em> (2026).
       </p>
-    </header>
+    </section>
 
     <!-- Releases Grid (2-Column Layout for Optimal Tracklist Readability) -->
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-      
+
       <!-- Release 1: Humanity (2026) - Latest -->
-      <div class="bg-zinc-900/90 border border-zinc-700/80 rounded-xl p-6 shadow-2xl backdrop-blur-md flex flex-col justify-between relative group">
+      <div
+        class="bg-zinc-900/90 border border-zinc-700/80 rounded-xl p-6 shadow-2xl backdrop-blur-md flex flex-col justify-between relative group">
         <div>
           <!-- Top Tag & Badge -->
           <div class="flex justify-between items-center mb-4">
-            <span class="text-xs uppercase tracking-widest bg-red-700/20 text-red-400 font-bold px-2.5 py-1 rounded border border-red-500/30">2026 • Full-Length</span>
-            <span class="text-xs bg-zinc-800 border border-zinc-700 px-2.5 py-1 rounded text-red-400 font-bold uppercase tracking-wider">Latest Release</span>
+            <span
+              class="text-xs uppercase tracking-widest bg-red-700/20 text-red-400 font-bold px-2.5 py-1 rounded border border-red-500/30">2026
+              • Full-Length</span>
+            <span
+              class="text-xs bg-zinc-800 border border-zinc-700 px-2.5 py-1 rounded text-red-400 font-bold uppercase tracking-wider">Latest
+              Release</span>
           </div>
 
           <!-- Album Art & Hover Stream Button -->
-          <div class="relative group/img overflow-hidden rounded-lg bg-zinc-800 aspect-square mb-6 border border-zinc-700/50 shadow-lg">
+          <div
+            class="relative group/img overflow-hidden rounded-lg bg-zinc-800 aspect-square mb-6 border border-zinc-700/50 shadow-lg">
             <img src="materiaal/humanity-logo.webp" alt="Humanity"
               class="w-full h-full object-cover transition duration-500 group-hover/img:scale-105" />
-            <div class="absolute inset-0 bg-black/75 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
+            <div
+              class="absolute inset-0 bg-black/75 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
               <p class="text-sm font-semibold text-gray-200 mb-4">The latest, fastest, hardest album!</p>
               <a href="https://open.spotify.com/album/2tK7AIVuWDj99VlIcjsQV8?si=FxqvOML1RuOa9A9Z1dioZw" target="_blank"
                 class="px-6 py-2.5 rounded-lg border border-red-500/40 text-sm font-bold bg-[#d11a12] text-white hover:bg-red-700 transition shadow-lg">
@@ -65,7 +96,8 @@
 
           <!-- Album Details -->
           <div class="space-y-1 mb-4">
-            <h2 class="text-xl font-black text-white"><span class="text-zinc-500 font-normal">Album:</span> Humanity</h2>
+            <h2 class="text-xl font-black text-white"><span class="text-zinc-500 font-normal">Album:</span> Humanity
+            </h2>
             <h3 class="text-sm text-zinc-300"><span class="text-zinc-500">Type:</span> Full-length</h3>
             <h3 class="text-sm text-zinc-300"><span class="text-zinc-500">Year:</span> 2026</h3>
           </div>
@@ -75,22 +107,63 @@
             <h4 class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-3">Tracklist</h4>
             <table class="table-auto w-full text-sm">
               <tbody class="divide-y divide-zinc-800/60">
-                <tr><td class="w-8 py-1.5 text-zinc-500">1.</td><td class="font-medium text-white py-1.5">In the Name Of</td><td class="text-right text-zinc-400 py-1.5">04:34</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">2.</td><td class="font-medium text-white py-1.5">Preach to the Choir</td><td class="text-right text-zinc-400 py-1.5">03:39</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">3.</td><td class="font-medium text-white py-1.5">Myth Trap</td><td class="text-right text-zinc-400 py-1.5">03:43</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">4.</td><td class="font-medium text-white py-1.5">Unknown Home</td><td class="text-right text-zinc-400 py-1.5">03:41</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">5.</td><td class="font-medium text-white py-1.5">Pact of Forgetting</td><td class="text-right text-zinc-400 py-1.5">03:35</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">6.</td><td class="font-medium text-white py-1.5">The Useless</td><td class="text-right text-zinc-400 py-1.5">04:41</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">7.</td><td class="font-medium text-white py-1.5">Identify</td><td class="text-right text-zinc-400 py-1.5">03:49</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">8.</td><td class="font-medium text-white py-1.5">Paradise or Peril</td><td class="text-right text-zinc-400 py-1.5">04:10</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">9.</td><td class="font-medium text-white py-1.5">Rope Burn</td><td class="text-right text-zinc-400 py-1.5">03:51</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">10.</td><td class="font-medium text-white py-1.5">Lambs to the Slaughter</td><td class="text-right text-zinc-400 py-1.5">03:50</td></tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">1.</td>
+                  <td class="font-medium text-white py-1.5">In the Name Of</td>
+                  <td class="text-right text-zinc-400 py-1.5">04:34</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">2.</td>
+                  <td class="font-medium text-white py-1.5">Preach to the Choir</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:39</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">3.</td>
+                  <td class="font-medium text-white py-1.5">Myth Trap</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:43</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">4.</td>
+                  <td class="font-medium text-white py-1.5">Unknown Home</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:41</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">5.</td>
+                  <td class="font-medium text-white py-1.5">Pact of Forgetting</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:35</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">6.</td>
+                  <td class="font-medium text-white py-1.5">The Useless</td>
+                  <td class="text-right text-zinc-400 py-1.5">04:41</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">7.</td>
+                  <td class="font-medium text-white py-1.5">Identify</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:49</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">8.</td>
+                  <td class="font-medium text-white py-1.5">Paradise or Peril</td>
+                  <td class="text-right text-zinc-400 py-1.5">04:10</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">9.</td>
+                  <td class="font-medium text-white py-1.5">Rope Burn</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:51</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">10.</td>
+                  <td class="font-medium text-white py-1.5">Lambs to the Slaughter</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:50</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
           <!-- Lineup & Notes -->
-          <div class="border-t border-zinc-800 pt-4 text-sm space-y-1 bg-zinc-950/40 p-4 rounded-lg border border-white/5">
+          <div
+            class="border-t border-zinc-800 pt-4 text-sm space-y-1 bg-zinc-950/40 p-4 rounded-lg border border-white/5">
             <p class="text-white font-bold uppercase tracking-wider text-xs mb-2 text-[#d11a12]">Lineup & Credits</p>
             <p class="text-zinc-300">Ron - Bass</p>
             <p class="text-zinc-300">Jos - Vocals / Guitars</p>
@@ -104,18 +177,23 @@
       </div>
 
       <!-- Release 2: Bankrupt the Republic (2023) -->
-      <div class="bg-zinc-900/90 border border-zinc-700/80 rounded-xl p-6 shadow-2xl backdrop-blur-md flex flex-col justify-between relative group">
+      <div
+        class="bg-zinc-900/90 border border-zinc-700/80 rounded-xl p-6 shadow-2xl backdrop-blur-md flex flex-col justify-between relative group">
         <div>
           <!-- Top Tag & Badge -->
           <div class="flex justify-between items-center mb-4">
-            <span class="text-xs uppercase tracking-widest bg-zinc-800 text-zinc-300 font-bold px-2.5 py-1 rounded border border-zinc-700">2023 • EP</span>
+            <span
+              class="text-xs uppercase tracking-widest bg-zinc-800 text-zinc-300 font-bold px-2.5 py-1 rounded border border-zinc-700">2023
+              • EP</span>
           </div>
 
           <!-- Album Art & Hover Stream Button -->
-          <div class="relative group/img overflow-hidden rounded-lg bg-zinc-800 aspect-square mb-6 border border-zinc-700/50 shadow-lg">
+          <div
+            class="relative group/img overflow-hidden rounded-lg bg-zinc-800 aspect-square mb-6 border border-zinc-700/50 shadow-lg">
             <img src="materiaal/bankrupt.webp" alt="Bankrupt the Republic"
               class="w-full h-full object-cover transition duration-500 group-hover/img:scale-105" />
-            <div class="absolute inset-0 bg-black/75 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
+            <div
+              class="absolute inset-0 bg-black/75 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
               <p class="text-sm font-semibold text-gray-200 mb-4">EP from 2023!</p>
               <a href="https://open.spotify.com/album/5dDmZOqbYj7v3Fxoovcgdq?si=sboRPcJ3Sr2UXZOWIfyZWw" target="_blank"
                 class="px-6 py-2.5 rounded-lg border border-red-500/40 text-sm font-bold bg-[#d11a12] text-white hover:bg-red-700 transition shadow-lg">
@@ -126,7 +204,8 @@
 
           <!-- Album Details -->
           <div class="space-y-1 mb-4">
-            <h2 class="text-xl font-black text-white"><span class="text-zinc-500 font-normal">Album:</span> Bankrupt the Republic</h2>
+            <h2 class="text-xl font-black text-white"><span class="text-zinc-500 font-normal">Album:</span> Bankrupt the
+              Republic</h2>
             <h3 class="text-sm text-zinc-300"><span class="text-zinc-500">Type:</span> EP</h3>
             <h3 class="text-sm text-zinc-300"><span class="text-zinc-500">Year:</span> 2023</h3>
           </div>
@@ -136,15 +215,28 @@
             <h4 class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-3">Tracklist</h4>
             <table class="table-auto w-full text-sm">
               <tbody class="divide-y divide-zinc-800/60">
-                <tr><td class="w-8 py-1.5 text-zinc-500">1.</td><td class="font-medium text-white py-1.5">Bankrupt the Republic</td><td class="text-right text-zinc-400 py-1.5">03:51</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">2.</td><td class="font-medium text-white py-1.5">Political Rot</td><td class="text-right text-zinc-400 py-1.5">04:18</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">3.</td><td class="font-medium text-white py-1.5">War Is My Shepherd</td><td class="text-right text-zinc-400 py-1.5">04:32</td></tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">1.</td>
+                  <td class="font-medium text-white py-1.5">Bankrupt the Republic</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:51</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">2.</td>
+                  <td class="font-medium text-white py-1.5">Political Rot</td>
+                  <td class="text-right text-zinc-400 py-1.5">04:18</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">3.</td>
+                  <td class="font-medium text-white py-1.5">War Is My Shepherd</td>
+                  <td class="text-right text-zinc-400 py-1.5">04:32</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
           <!-- Lineup & Notes -->
-          <div class="border-t border-zinc-800 pt-4 text-sm space-y-1 bg-zinc-950/40 p-4 rounded-lg border border-white/5">
+          <div
+            class="border-t border-zinc-800 pt-4 text-sm space-y-1 bg-zinc-950/40 p-4 rounded-lg border border-white/5">
             <p class="text-white font-bold uppercase tracking-wider text-xs mb-2 text-[#d11a12]">Lineup & Credits</p>
             <p class="text-zinc-300">Ron - Bass</p>
             <p class="text-zinc-300">Jos - Vocals / Guitars</p>
@@ -157,18 +249,23 @@
       </div>
 
       <!-- Release 3: Apocaholic (2021) -->
-      <div class="bg-zinc-900/90 border border-zinc-700/80 rounded-xl p-6 shadow-2xl backdrop-blur-md flex flex-col justify-between relative group">
+      <div
+        class="bg-zinc-900/90 border border-zinc-700/80 rounded-xl p-6 shadow-2xl backdrop-blur-md flex flex-col justify-between relative group">
         <div>
           <!-- Top Tag & Badge -->
           <div class="flex justify-between items-center mb-4">
-            <span class="text-xs uppercase tracking-widest bg-zinc-800 text-zinc-300 font-bold px-2.5 py-1 rounded border border-zinc-700">2021 • Full-Length</span>
+            <span
+              class="text-xs uppercase tracking-widest bg-zinc-800 text-zinc-300 font-bold px-2.5 py-1 rounded border border-zinc-700">2021
+              • Full-Length</span>
           </div>
 
           <!-- Album Art & Hover Stream Button -->
-          <div class="relative group/img overflow-hidden rounded-lg bg-zinc-800 aspect-square mb-6 border border-zinc-700/50 shadow-lg">
+          <div
+            class="relative group/img overflow-hidden rounded-lg bg-zinc-800 aspect-square mb-6 border border-zinc-700/50 shadow-lg">
             <img src="materiaal/apocaholic.webp" alt="Apocaholic"
               class="w-full h-full object-cover transition duration-500 group-hover/img:scale-105" />
-            <div class="absolute inset-0 bg-black/75 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
+            <div
+              class="absolute inset-0 bg-black/75 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
               <p class="text-sm font-semibold text-gray-200 mb-4">Debut album!</p>
               <a href="https://open.spotify.com/album/45lOosrBDeR0IzE4Uf4Q2K?si=MQ4mKXXnQleeDA9z2LeuWQ" target="_blank"
                 class="px-6 py-2.5 rounded-lg border border-red-500/40 text-sm font-bold bg-[#d11a12] text-white hover:bg-red-700 transition shadow-lg">
@@ -179,7 +276,8 @@
 
           <!-- Album Details -->
           <div class="space-y-1 mb-4">
-            <h2 class="text-xl font-black text-white"><span class="text-zinc-500 font-normal">Album:</span> Apocaholic</h2>
+            <h2 class="text-xl font-black text-white"><span class="text-zinc-500 font-normal">Album:</span> Apocaholic
+            </h2>
             <h3 class="text-sm text-zinc-300"><span class="text-zinc-500">Type:</span> Full-length</h3>
             <h3 class="text-sm text-zinc-300"><span class="text-zinc-500">Year:</span> 2021</h3>
           </div>
@@ -189,22 +287,63 @@
             <h4 class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-3">Tracklist</h4>
             <table class="table-auto w-full text-sm">
               <tbody class="divide-y divide-zinc-800/60">
-                <tr><td class="w-8 py-1.5 text-zinc-500">1.</td><td class="font-medium text-white py-1.5">Apocaholic</td><td class="text-right text-zinc-400 py-1.5">04:01</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">2.</td><td class="font-medium text-white py-1.5">Closing the Border</td><td class="text-right text-zinc-400 py-1.5">04:21</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">3.</td><td class="font-medium text-white py-1.5">Mental Hijack</td><td class="text-right text-zinc-400 py-1.5">04:04</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">4.</td><td class="font-medium text-white py-1.5">Cut the Cord</td><td class="text-right text-zinc-400 py-1.5">03:36</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">5.</td><td class="font-medium text-white py-1.5">Heads & Tails</td><td class="text-right text-zinc-400 py-1.5">04:18</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">6.</td><td class="font-medium text-white py-1.5">Talking Shit</td><td class="text-right text-zinc-400 py-1.5">04:03</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">7.</td><td class="font-medium text-white py-1.5">Silence is Silver</td><td class="text-right text-zinc-400 py-1.5">05:08</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">8.</td><td class="font-medium text-white py-1.5">Moral Superiority</td><td class="text-right text-zinc-400 py-1.5">03:51</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">9.</td><td class="font-medium text-white py-1.5">There Is No God</td><td class="text-right text-zinc-400 py-1.5">04:58</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">10.</td><td class="font-medium text-white py-1.5">The Gap</td><td class="text-right text-zinc-400 py-1.5">03:09</td></tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">1.</td>
+                  <td class="font-medium text-white py-1.5">Apocaholic</td>
+                  <td class="text-right text-zinc-400 py-1.5">04:01</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">2.</td>
+                  <td class="font-medium text-white py-1.5">Closing the Border</td>
+                  <td class="text-right text-zinc-400 py-1.5">04:21</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">3.</td>
+                  <td class="font-medium text-white py-1.5">Mental Hijack</td>
+                  <td class="text-right text-zinc-400 py-1.5">04:04</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">4.</td>
+                  <td class="font-medium text-white py-1.5">Cut the Cord</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:36</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">5.</td>
+                  <td class="font-medium text-white py-1.5">Heads & Tails</td>
+                  <td class="text-right text-zinc-400 py-1.5">04:18</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">6.</td>
+                  <td class="font-medium text-white py-1.5">Talking Shit</td>
+                  <td class="text-right text-zinc-400 py-1.5">04:03</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">7.</td>
+                  <td class="font-medium text-white py-1.5">Silence is Silver</td>
+                  <td class="text-right text-zinc-400 py-1.5">05:08</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">8.</td>
+                  <td class="font-medium text-white py-1.5">Moral Superiority</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:51</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">9.</td>
+                  <td class="font-medium text-white py-1.5">There Is No God</td>
+                  <td class="text-right text-zinc-400 py-1.5">04:58</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">10.</td>
+                  <td class="font-medium text-white py-1.5">The Gap</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:09</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
           <!-- Lineup & Notes -->
-          <div class="border-t border-zinc-800 pt-4 text-sm space-y-1 bg-zinc-950/40 p-4 rounded-lg border border-white/5">
+          <div
+            class="border-t border-zinc-800 pt-4 text-sm space-y-1 bg-zinc-950/40 p-4 rounded-lg border border-white/5">
             <p class="text-white font-bold uppercase tracking-wider text-xs mb-2 text-[#d11a12]">Lineup & Credits</p>
             <p class="text-zinc-300">Ron - Bass</p>
             <p class="text-zinc-300">Jos - Vocals / Guitars</p>
@@ -217,18 +356,23 @@
       </div>
 
       <!-- Release 4: Excluded Human Being (2017) -->
-      <div class="bg-zinc-900/90 border border-zinc-700/80 rounded-xl p-6 shadow-2xl backdrop-blur-md flex flex-col justify-between relative group">
+      <div
+        class="bg-zinc-900/90 border border-zinc-700/80 rounded-xl p-6 shadow-2xl backdrop-blur-md flex flex-col justify-between relative group">
         <div>
           <!-- Top Tag & Badge -->
           <div class="flex justify-between items-center mb-4">
-            <span class="text-xs uppercase tracking-widest bg-zinc-800 text-zinc-300 font-bold px-2.5 py-1 rounded border border-zinc-700">2017 • EP</span>
+            <span
+              class="text-xs uppercase tracking-widest bg-zinc-800 text-zinc-300 font-bold px-2.5 py-1 rounded border border-zinc-700">2017
+              • EP</span>
           </div>
 
           <!-- Album Art & Hover Stream Button -->
-          <div class="relative group/img overflow-hidden rounded-lg bg-zinc-800 aspect-square mb-6 border border-zinc-700/50 shadow-lg">
+          <div
+            class="relative group/img overflow-hidden rounded-lg bg-zinc-800 aspect-square mb-6 border border-zinc-700/50 shadow-lg">
             <img src="materiaal/exclusive.webp" alt="Excluded Human Being"
               class="w-full h-full object-cover transition duration-500 group-hover/img:scale-105" />
-            <div class="absolute inset-0 bg-black/75 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
+            <div
+              class="absolute inset-0 bg-black/75 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
               <p class="text-sm font-semibold text-gray-200 mb-4">First EP!</p>
               <a href="https://open.spotify.com/album/7wWquA2HPCn76tY2B3BC9M?si=wlVSUUltTBCye4RBL6kNGA" target="_blank"
                 class="px-6 py-2.5 rounded-lg border border-red-500/40 text-sm font-bold bg-[#d11a12] text-white hover:bg-red-700 transition shadow-lg">
@@ -239,7 +383,8 @@
 
           <!-- Album Details -->
           <div class="space-y-1 mb-4">
-            <h2 class="text-xl font-black text-white"><span class="text-zinc-500 font-normal">Album:</span> Excluded Human Being</h2>
+            <h2 class="text-xl font-black text-white"><span class="text-zinc-500 font-normal">Album:</span> Excluded
+              Human Being</h2>
             <h3 class="text-sm text-zinc-300"><span class="text-zinc-500">Type:</span> EP</h3>
             <h3 class="text-sm text-zinc-300"><span class="text-zinc-500">Year:</span> 2017</h3>
           </div>
@@ -249,15 +394,28 @@
             <h4 class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-3">Tracklist</h4>
             <table class="table-auto w-full text-sm">
               <tbody class="divide-y divide-zinc-800/60">
-                <tr><td class="w-8 py-1.5 text-zinc-500">1.</td><td class="font-medium text-white py-1.5">Lies</td><td class="text-right text-zinc-400 py-1.5">03:53</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">2.</td><td class="font-medium text-white py-1.5">Excluded Human Being</td><td class="text-right text-zinc-400 py-1.5">04:57</td></tr>
-                <tr><td class="w-8 py-1.5 text-zinc-500">3.</td><td class="font-medium text-white py-1.5">Distance</td><td class="text-right text-zinc-400 py-1.5">03:03</td></tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">1.</td>
+                  <td class="font-medium text-white py-1.5">Lies</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:53</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">2.</td>
+                  <td class="font-medium text-white py-1.5">Excluded Human Being</td>
+                  <td class="text-right text-zinc-400 py-1.5">04:57</td>
+                </tr>
+                <tr>
+                  <td class="w-8 py-1.5 text-zinc-500">3.</td>
+                  <td class="font-medium text-white py-1.5">Distance</td>
+                  <td class="text-right text-zinc-400 py-1.5">03:03</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
           <!-- Lineup & Notes -->
-          <div class="border-t border-zinc-800 pt-4 text-sm space-y-1 bg-zinc-950/40 p-4 rounded-lg border border-white/5">
+          <div
+            class="border-t border-zinc-800 pt-4 text-sm space-y-1 bg-zinc-950/40 p-4 rounded-lg border border-white/5">
             <p class="text-white font-bold uppercase tracking-wider text-xs mb-2 text-[#d11a12]">Lineup & Credits</p>
             <p class="text-zinc-300">Ron - Bass</p>
             <p class="text-zinc-300">Jos - Vocals / Guitars</p>
@@ -267,14 +425,257 @@
           </div>
         </div>
       </div>
-
     </div>
-
-    <!-- Footer -->
-    <footer class="mt-20 pt-8 border-t border-zinc-800 text-center text-zinc-500 text-sm">
-      <p>&copy; Velozza — All rights reserved.</p>
-    </footer>
   </main>
+
+  <footer id="contact" class="border-t border-white/5 py-12">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h4 class="text-sm text-gray-400">Contact</h4>
+        <p class="text-gray-300 mt-2 text-sm">
+          Email:
+          <a href="mailto:velozza@outlook.com" class="underline">velozza@outlook.com</a>
+        </p>
+        <p class="text-gray-300 mt-2 text-sm">
+          Phone number:
+          <a href="tel:+310623486118" class="underline">+31 (0)6 23486118</a>
+        </p>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="https://www.mypresskit.info/artist/velozza" target="_blank"
+          class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
+          <img src="materiaal/icons/presskit.svg" alt="Presskit Icon"
+            class="w-7 h-7 inline-block align-text-bottom" /></a>
+        <a href="https://velozza.bandcamp.com/" target="_blank"
+          class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
+          <img src="materiaal/icons/bandcamp.svg" alt="Bandcamp Icon"
+            class="w-7 h-7 inline-block align-text-bottom" /></a>
+        <a href="https://facebook.com/Velozzaband" target="_blank"
+          class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
+          <img src="materiaal/icons/facebook.svg" alt="Facebook Icon"
+            class="w-7 h-7 inline-block align-text-bottom" /></a>
+        <a href="https://instagram.com/velozzaofficial" target="_blank"
+          class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
+          <img src="materiaal/icons/instagram.svg" alt="Instagram Icon"
+            class="w-7 h-7 inline-block align-text-bottom" /></a>
+        <a href="https://open.spotify.com/artist/1jnRNkkxVD5IHcPbOa3u0W" target="_blank"
+          class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
+          <img src="materiaal/icons/spotify.svg" alt="Spotify Icon"
+            class="w-7 h-7 inline-block align-text-bottom" /></a>
+        <a href="https://www.youtube.com/@velozzaofficial" target="_blank"
+          class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 hover:bg-[#d11a12]">
+          <img src="materiaal/icons/youtube-icon.svg" alt="YouTube Icon"
+            class="w-7 h-7 inline-block align-text-bottom" /></a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 mt-8 text-xs text-gray-600">
+      © Velozza — All rights reserved.
+    </div>
+  </footer>
+
+  <div id="bookingsModal"
+    class="fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-4 sm:p-6 hidden transition-opacity duration-300">
+    <div
+      class="bg-zinc-900 border border-zinc-700 rounded-xl max-w-4xl w-full relative max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+
+      <!-- Header Section (Sticky for easy closing) -->
+      <div
+        class="bg-zinc-950 px-6 sm:px-8 py-5 border-b border-zinc-800 flex justify-between items-center sticky top-0 z-10">
+        <div>
+          <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">
+            Velozza <span class="text-red-600">Press & Booking Kit</span>
+          </h3>
+          <p class="text-gray-400 mt-1 text-sm font-medium">Raw, high-energy thrash rooted in the spirit of the '80s.
+          </p>
+        </div>
+        <button id="closeBookingsModal" class="text-3xl text-gray-500 hover:text-red-500 transition-colors -mt-4">
+          &times;
+        </button>
+      </div>
+
+      <!-- Scrollable Content -->
+      <div class="p-6 sm:p-8 overflow-y-auto">
+
+        <!-- Top Grid: Pitch & At-a-Glance -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+          <!-- Left: The Pitch -->
+          <div class="md:col-span-2 flex flex-col justify-center">
+            <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+              Formed in 2016 in Roermond, NL, Velozza delivers uncompromising thrash metal. Having shared the stage with
+              international acts such as <strong class="text-white">Sacred Reich, D.R.I., Angelus Apatrida, Gama Bomb,
+                Lich King, and Chemicide</strong>, they
+              know how to command a crowd. Fast, tight, and relentless — Velozza brings a full-power show built for
+              headbanging crowds.
+            </p>
+            <div
+              class="inline-flex items-center gap-3 bg-zinc-800/50 border border-zinc-700/50 rounded-lg py-2 px-4 w-fit">
+              <span class="text-red-500 font-bold uppercase text-xs tracking-widest">For fans of:</span>
+              <span class="text-gray-100 font-medium text-sm">Exodus • Kreator • Slayer • Havok</span>
+            </div>
+          </div>
+
+          <!-- Right: Booking Info Card -->
+          <div class="bg-zinc-800 rounded-lg p-5 border-t-4 border-red-600 shadow-lg">
+            <h4 class="text-white font-bold uppercase tracking-wider text-sm mb-4 border-b border-white/10 pb-2">Booking
+              Info</h4>
+            <ul class="space-y-4 text-sm text-gray-300">
+              <!-- Stacked Fee / Conditions Section -->
+              <li class="flex flex-col space-y-1">
+                <span class="text-gray-400 text-xs uppercase tracking-wider">Fee & Terms</span>
+                <span class="text-white font-medium">Contact us for availability and pricing conditions.</span>
+              </li>
+
+              <!-- Contact Info -->
+              <li class="flex justify-between items-center pt-2 border-t border-white/5">
+                <span class="text-gray-400">Contact</span>
+                <span class="text-white font-medium">Rob van Leeuwen</span>
+              </li>
+              <li class="flex justify-between items-center">
+                <span class="text-gray-400">Tel</span>
+                <a href="tel:+310623486118" class="text-white hover:text-red-400 transition underline">+31 (0)6
+                  23486118</a>
+              </li>
+              <li class="flex justify-between items-center">
+                <span class="text-gray-400">Mail</span>
+                <a href="mailto:velozza@outlook.com"
+                  class="text-white hover:text-red-400 transition underline">velozza@outlook.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Essential Docs Section -->
+        <div class="mb-8">
+          <h4 class="text-lg font-bold text-white mb-3 uppercase tracking-wider">Official Documents</h4>
+          <div class="flex flex-wrap gap-3">
+            <a href="materiaal/Velozza - Bio.pdf" target="_blank"
+              class="flex-1 min-w-[200px] flex items-center justify-center px-4 py-3 bg-zinc-800 border border-zinc-600 text-white rounded-md hover:bg-zinc-700 hover:border-red-500 transition group">
+              <img src="materiaal/icons/download-cloud.svg" alt="Download Icon"
+                class="w-5 h-5 mr-2 opacity-70 group-hover:opacity-100 transition" />
+              <span class="font-semibold text-sm">Download Bio (PDF)</span>
+            </a>
+            <a href="materiaal/Velozza-Tech Rider01.png" target="_blank"
+              class="flex-1 min-w-[200px] flex items-center justify-center px-4 py-3 bg-zinc-800 border border-zinc-600 text-white rounded-md hover:bg-zinc-700 hover:border-red-500 transition group">
+              <img src="materiaal/icons/download-cloud.svg" alt="Download Icon"
+                class="w-5 h-5 mr-2 opacity-70 group-hover:opacity-100 transition" />
+              <span class="font-semibold text-sm">Download Techrider (PDF)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Press Photos Section -->
+        <div class="mb-8">
+          <div class="flex justify-between items-end mb-3">
+            <h4 class="text-lg font-bold text-white uppercase tracking-wider">Official Media</h4>
+          </div>
+
+          <!-- Masonry-style Grid -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+
+            <!-- Large Band Photo -->
+            <div class="col-span-2 md:col-span-4 relative group">
+              <img src="materiaal/velozza-022.webp" alt="Velozza Group"
+                class="w-full h-112 sm:h-128 rounded-lg shadow-lg object-cover border border-white/5" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                <p class="text-sm text-white font-medium">Velozza (Full Band)</p>
+              </div>
+            </div>
+
+            <!-- Banner Photo -->
+            <div class="col-span-2 md:col-span-4 relative group">
+              <img src="materiaal/velozza-banner.webp" alt="Velozza Banner"
+                class="w-full h-48 sm:h-56 rounded-lg shadow-lg object-cover border border-white/5" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                <p class="text-sm text-white font-medium">Velozza (Banner)</p>
+              </div>
+            </div>
+
+            <!-- Members Grid -->
+            <div class="relative group">
+              <img src="materiaal/Velozza - members/velozza-bas.webp" alt="Bas"
+                class="w-full aspect-square rounded-lg shadow-md object-cover border border-white/5" />
+              <div class="absolute inset-x-0 bottom-0 bg-black/70 p-2 rounded-b-lg">
+                <p class="text-[10px] sm:text-xs text-gray-300 text-center font-medium">Bas (Lead Guitar)</p>
+              </div>
+            </div>
+            <div class="relative group">
+              <img src="materiaal/Velozza - members/velozza-rob.webp" alt="Rob"
+                class="w-full aspect-square rounded-lg shadow-md object-cover border border-white/5" />
+              <div class="absolute inset-x-0 bottom-0 bg-black/70 p-2 rounded-b-lg">
+                <p class="text-[10px] sm:text-xs text-gray-300 text-center font-medium">Rob (Drums)</p>
+              </div>
+            </div>
+            <div class="relative group">
+              <img src="materiaal/Velozza - members/velozza-jos.webp" alt="Jos"
+                class="w-full aspect-square rounded-lg shadow-md object-cover border border-white/5" />
+              <div class="absolute inset-x-0 bottom-0 bg-black/70 p-2 rounded-b-lg">
+                <p class="text-[10px] sm:text-xs text-gray-300 text-center font-medium">Jos (Guitar/Vocals)</p>
+              </div>
+            </div>
+            <div class="relative group">
+              <img src="materiaal/Velozza - members/velozza-ron.webp" alt="Ron"
+                class="w-full aspect-square rounded-lg shadow-md object-cover border border-white/5" />
+              <div class="absolute inset-x-0 bottom-0 bg-black/70 p-2 rounded-b-lg">
+                <p class="text-[10px] sm:text-xs text-gray-300 text-center font-medium">Ron (Bass)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Media Download Links -->
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a href="https://github.com/RobVelozza/Velozza/releases/latest/download/velozza-press-photos.zip"
+              target="_blank"
+              class="flex-1 min-w-[180px] text-center px-3 py-2 bg-zinc-800/80 border border-white/10 text-gray-300 rounded text-xs hover:bg-zinc-700 hover:text-white transition">
+              <img src="materiaal/icons/download-cloud.svg" alt="Download Icon"
+                class="w-4 h-4 inline-block mr-1 align-text-bottom opacity-70" />
+              Press photos (JPG)
+            </a>
+            <a href="https://github.com/SLPvanLeeuwen/Velozza/releases/latest/download/velozza-performance-photos.zip"
+              target="_blank"
+              class="flex-1 min-w-[180px] text-center px-3 py-2 bg-zinc-800/80 border border-white/10 text-gray-300 rounded text-xs hover:bg-zinc-700 hover:text-white transition">
+              <img src="materiaal/icons/download-cloud.svg" alt="Download Icon"
+                class="w-4 h-4 inline-block mr-1 align-text-bottom opacity-70" />
+              Live photos (JPG)
+            </a>
+            <a href="https://github.com/SLPvanLeeuwen/Velozza/releases/latest/download/velozza-videos.zip"
+              target="_blank"
+              class="flex-1 min-w-[180px] text-center px-3 py-2 bg-zinc-800/80 border border-white/10 text-gray-300 rounded text-xs hover:bg-zinc-700 hover:text-white transition">
+              <img src="materiaal/icons/download-cloud.svg" alt="Download Icon"
+                class="w-4 h-4 inline-block mr-1 align-text-bottom opacity-70" />
+              Videos (MP4)
+            </a>
+            <a href="https://github.com/SLPvanLeeuwen/Velozza/releases/latest/download/velozza-press-quotes.pdf"
+              target="_blank"
+              class="flex-1 min-w-[180px] text-center px-3 py-2 bg-zinc-800/80 border border-white/10 text-gray-300 rounded text-xs hover:bg-zinc-700 hover:text-white transition">
+              <img src="materiaal/icons/download-cloud.svg" alt="Download Icon"
+                class="w-4 h-4 inline-block mr-1 align-text-bottom opacity-70" />
+              Press quotes (PDF)
+            </a>
+          </div>
+        </div>
+
+        <!-- Main CTA -->
+        <div class="pt-6 border-t border-zinc-800 text-center">
+          <a href="https://github.com/SLPvanLeeuwen/Velozza/releases/latest/download/velozza-presskit.zip"
+            target="_blank"
+            class="inline-flex items-center justify-center px-8 py-4 bg-red-700 border border-red-600 text-white rounded-lg font-bold text-lg hover:bg-red-600 hover:shadow-[0_0_20px_rgba(220,38,38,0.4)] transition-all duration-300 w-full md:w-auto uppercase tracking-wide">
+            <img src="materiaal/icons/download.svg" alt="Download Icon" class="w-6 h-6 inline-block mr-3" />
+            Download Full Press-Kit (ZIP)
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <button id="backToTopBtn"
+    class="fixed bottom-6 right-6 z-[1000] w-12 h-12 rounded-md bg-[var(--muted)]/70 hover:bg-[#d11a12] text-white flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none shadow-xl"
+    title="Scroll naar boven">
+    <img src="materiaal/icons/arrow-up.svg" alt="Pijl omhoog" class="w-6 h-6" />
+  </button>
+  <script src="js/script.js" type="module"></script>
 </body>
 
 </html>
