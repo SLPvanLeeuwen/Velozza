@@ -20,12 +20,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const stripe = Stripe('pk_test_51TLJReDdvX4x3QrxinvVCumfTVLpAqgmm3Y5zJIwMX8bVIjyUwWUgSyIOUEyWusoLMcWOqXYzNJfQGGjrqlm9esw00fjn6qLLN');
-
 document.addEventListener('DOMContentLoaded', () => {
     const merchGrid = document.getElementById('merchGrid');
 
-    if (!merchGrid) return; 
+    if (!merchGrid) return;
 
     const q = query(collection(db, 'products'), orderBy('createdAt', 'desc'));
 
@@ -54,36 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
                                 ${isOutOfStock ? 'Sold Out' : 'In Stock'}
                             </span>
                         </div>
-                        <button 
-                            data-priceid="${p.stripeId}"
-                            ${isOutOfStock ? 'disabled' : ''}
-                            class="checkout-btn w-full mt-6 py-3 bg-red-600 text-white font-bold rounded hover:bg-red-700 transition disabled:bg-zinc-800 disabled:text-zinc-600">
-                            ${isOutOfStock ? 'Out of Stock' : 'Buy Now'}
-                        </button>
+                        <a href="${p.stripeId}" 
+                        ${isOutOfStock ? 'disabled style="pointer-events: none;"' : ''}
+                        class="w-full mt-6 py-3 bg-red-600 text-white font-bold rounded hover:bg-red-700 transition flex items-center justify-center text-center ${isOutOfStock ? 'bg-zinc-800 text-zinc-600' : ''}">
+                        ${isOutOfStock ? 'Out of Stock' : 'Buy Now'}
+                        </a>
                     </div>
                 </div>
             `;
         });
-
-        // Attach event listeners to all newly created buttons
-        const checkoutBtns = document.querySelectorAll('.checkout-btn');
-        checkoutBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const priceId = e.target.getAttribute('data-priceid');
-                if (priceId) handleCheckout(priceId);
-            });
-        });
     });
 });
-
-// The secure redirect to Stripe
-function handleCheckout(priceId) {
-    stripe.redirectToCheckout({
-        lineItems: [{ price: priceId, quantity: 1 }],
-        mode: 'payment',
-        successUrl: window.location.origin + '/success.html',
-        cancelUrl: window.location.href,
-    }).then(result => {
-        if (result.error) alert(result.error.message);
-    });
-}
