@@ -20,7 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const stripe = require('stripe')('pk_test_51TLJReDdvX4x3QrxinvVCumfTVLpAqgmm3Y5zJIwMX8bVIjyUwWUgSyIOUEyWusoLMcWOqXYzNJfQGGjrqlm9esw00fjn6qLLN');
+const stripe = Stripe('pk_test_51TLJReDdvX4x3QrxinvVCumfTVLpAqgmm3Y5zJIwMX8bVIjyUwWUgSyIOUEyWusoLMcWOqXYzNJfQGGjrqlm9esw00fjn6qLLN');
 
 document.addEventListener('DOMContentLoaded', () => {
     const merchGrid = document.getElementById('merchGrid');
