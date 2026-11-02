@@ -51,6 +51,19 @@ const saveProduct = document.getElementById('saveProduct');
 const prodMsg = document.getElementById('prodMsg');
 const productList = document.getElementById('productList');
 
+const editProdModal = document.getElementById('editProdModal');
+const editProdName = document.getElementById('editProdName');
+const editProdDesc = document.getElementById('editProdDesc');
+const editProdPrice = document.getElementById('editProdPrice');
+const editProdStock = document.getElementById('editProdStock');
+const editProdStripeId = document.getElementById('editProdStripeId');
+const editProdImage = document.getElementById('editProdImage');
+const cancelProdEdit = document.getElementById('cancelProdEdit');
+const saveProdEdit = document.getElementById('saveProdEdit');
+
+let currentEditProdId = null;
+let currentEditProdImageUrl = '';
+
 const eventDate = document.getElementById('eventDate');
 const eventName = document.getElementById('eventName');
 const eventLocation = document.getElementById('eventLocation');
@@ -175,7 +188,7 @@ saveProduct.addEventListener('click', async () => {
     } finally {
         saveProduct.disabled = false;
     }
-}); P
+});
 
 saveEvent.addEventListener('click', async () => {
     const date = eventDate.value;
@@ -242,7 +255,8 @@ function setupProductList() {
           <div class="font-semibold text-white">${p.name}</div>
           <div class="text-zinc-400 text-sm">€${p.price} — Stock: ${p.stock}</div>
         </div>
-        <div class="flex gap-2">
+        <div class="flex items-center gap-2">
+          <button onclick="openProdEditModal('${p.id}')" class="px-3 py-1 bg-zinc-700 rounded hover:bg-zinc-600 text-xs text-white">Edit</button>
           <button onclick="deleteProduct('${p.id}')" class="px-3 py-1 bg-red-600 rounded hover:bg-red-700 text-xs text-white">Delete</button>
         </div>
       `;
@@ -396,3 +410,58 @@ function escapeHtml(str) {
         return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
     });
 }
+
+window.openProdEditModal = async function(id) {
+    currentEditProdId = id;
+    try {
+        const snap = await getDoc(doc(db, 'products', id));
+        if (!snap.exists()) return;
+        const p = snap.data();
+
+        editProdName.value = p.name || '';
+        editProdDesc.value = p.description || p.desc || '';
+        editProdPrice.value = p.price || '';
+        editProdStock.value = p.stock || 0;
+        editProdStripeId.value = p.stripeId || '';
+        currentEditProdImageUrl = p.image || '';
+        editProdImage.value = ''; // Reset file input
+
+        editProdModal.classList.remove('hidden');
+    } catch (err) {
+        console.error('Error opening product edit', err);
+    }
+};
+
+cancelProdEdit.addEventListener('click', () => {
+    currentEditProdId = null;
+    editProdModal.classList.add('hidden');
+});
+
+saveProdEdit.addEventListener('click', async () => {
+    if (!currentEditProdId) return;
+
+    saveProdEdit.disabled = true;
+    saveProdEdit.textContent = 'Saving...';
+
+    try {
+        const imageFile = editProdImage.files[0];
+        const imageUrl = imageFile ? await uploadPoster(imageFile) : currentEditProdImageUrl;
+
+        await updateDoc(doc(db, 'products', currentEditProdId), {
+            name: editProdName.value.trim(),
+            desc: editProdDesc.value.trim(),
+            price: parseFloat(editProdPrice.value),
+            stock: parseInt(editProdStock.value),
+            stripeId: editProdStripeId.value.trim(),
+            image: imageUrl
+        });
+
+        editProdModal.classList.add('hidden');
+    } catch (err) {
+        console.error('Update error', err);
+        alert('Could not save product changes.');
+    } finally {
+        saveProdEdit.disabled = false;
+        saveProdEdit.textContent = 'Save changes';
+    }
+});

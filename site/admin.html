@@ -72,6 +72,27 @@
       <div id="productList" class="mt-4 space-y-3"></div>
     </section>
 
+    <!-- EDIT PRODUCT MODAL -->
+    <div id="editProdModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50">
+      <div class="bg-zinc-900 p-6 rounded-xl w-full max-w-lg shadow-lg border border-zinc-700">
+        <h3 class="text-xl font-semibold text-[var(--accent)]">Edit Product</h3>
+        <div class="grid grid-cols-1 gap-3 mt-4">
+          <input id="editProdName" type="text" class="p-3 bg-black border border-zinc-700 rounded" />
+          <input id="editProdDesc" type="text" placeholder="Description"
+            class="p-3 bg-black border border-zinc-700 rounded" />
+          <input id="editProdPrice" type="number" class="p-3 bg-black border border-zinc-700 rounded" />
+          <input id="editProdStock" type="number" class="p-3 bg-black border border-zinc-700 rounded" />
+          <input id="editProdStripeId" type="text" class="p-3 bg-black border border-zinc-700 rounded" />
+          <div class="text-sm text-gray-400 mt-2">Upload new image (leave empty to keep current):</div>
+          <input id="editProdImage" type="file" accept="image/*" class="p-3 bg-black border border-zinc-700 rounded" />
+        </div>
+        <div class="flex justify-between items-center gap-3 mt-4">
+          <button id="cancelProdEdit" class="px-4 py-2 bg-zinc-700 rounded hover:bg-zinc-600">Cancel</button>
+          <button id="saveProdEdit" class="px-4 py-2 bg-[var(--accent)] rounded hover:bg-red-700">Save changes</button>
+        </div>
+      </div>
+    </div>
+
     <section>
       <h2 class="text-2xl font-semibold text-gray-200">Add Event</h2>
       <div class="grid grid-cols-1 gap-3 mt-4">
