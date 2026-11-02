@@ -20,13 +20,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Initialize Stripe (Replace with your actual public key when verified)
-const stripe = Stripe('your_stripe_public_key_here');
+const stripe = require('stripe')('pk_test_51TLJReDdvX4x3QrxinvVCumfTVLpAqgmm3Y5zJIwMX8bVIjyUwWUgSyIOUEyWusoLMcWOqXYzNJfQGGjrqlm9esw00fjn6qLLN');
 
 document.addEventListener('DOMContentLoaded', () => {
     const merchGrid = document.getElementById('merchGrid');
 
-    if (!merchGrid) return; // Exit if not on merch page
+    if (!merchGrid) return; 
 
     const q = query(collection(db, 'products'), orderBy('createdAt', 'desc'));
 
