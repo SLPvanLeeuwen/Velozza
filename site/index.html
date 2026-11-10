@@ -366,7 +366,7 @@
     </div>
   </section>
 
-  <section id="music" class="border-t border-white/5 py-16 bg-zinc-950/40">
+  <section id="music" class="border-t border-white/5 pt-16 pb-8 bg-zinc-950/40">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex items-center justify-between mb-6">
         <div>
@@ -448,6 +448,89 @@
               </svg>
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <h3 class="text-2xl font-bold text-white tracking-wide">Videos</h3>
+        <p class="text-xs text-gray-400 mt-1">Watch official music videos and live performances</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-1 gap-8 items-start">
+      <div class="space-y-3">
+        <!-- Added unique ID for video carousel to prevent JS conflicts with music -->
+        <div id="video-carousel"
+          class="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-3 pt-1 focus:outline-none">
+
+          <!-- Video Card 1 -->
+          <div
+            class="min-w-[320px] sm:min-w-[400px] max-w-[480px] w-full bg-zinc-900 border border-zinc-800 rounded-xl p-3 snap-start flex-shrink-0 shadow-lg hover:border-zinc-700 transition">
+            <div class="mb-2 flex justify-between items-center">
+              <span class="text-xs font-bold text-white truncate pr-2">Official Music Video</span>
+              <span
+                class="text-[10px] bg-red-700/20 text-red-400 px-2 py-0.5 rounded font-semibold whitespace-nowrap">Music
+                Video</span>
+            </div>
+            <iframe class="w-full aspect-video rounded-lg"
+              src="https://www.youtube.com/embed/wDyqtFNTTf4?si=Mm684wOu-nakG9lw" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+
+          <!-- Video Card 2 -->
+          <div
+            class="min-w-[320px] sm:min-w-[400px] max-w-[480px] w-full bg-zinc-900 border border-zinc-800 rounded-xl p-3 snap-start flex-shrink-0 shadow-lg hover:border-zinc-700 transition">
+            <div class="mb-2 flex justify-between items-center">
+              <span class="text-xs font-bold text-white truncate pr-2">Live Performance</span>
+              <span
+                class="text-[10px] bg-red-700/20 text-red-400 px-2 py-0.5 rounded font-semibold whitespace-nowrap">Live</span>
+            </div>
+            <iframe class="w-full aspect-video rounded-lg"
+              src="https://www.youtube.com/embed/B5QF83CZvEI?si=UIRMA55O_ZBA9fN-" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+
+          <!-- Video Card 3 -->
+          <div
+            class="min-w-[320px] sm:min-w-[400px] max-w-[480px] w-full bg-zinc-900 border border-zinc-800 rounded-xl p-3 snap-start flex-shrink-0 shadow-lg hover:border-zinc-700 transition">
+            <div class="mb-2 flex justify-between items-center">
+              <span class="text-xs font-bold text-white truncate pr-2">Behind the Scenes</span>
+              <span
+                class="text-[10px] bg-red-700/20 text-red-400 px-2 py-0.5 rounded font-semibold whitespace-nowrap">Feature</span>
+            </div>
+            <iframe class="w-full aspect-video rounded-lg"
+              src="https://www.youtube.com/embed/Fk4BFv5bayM?si=einiUUV9iYDNiok4" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+
+        </div>
+
+        <!-- Scroll Controls -->
+        <div class="flex gap-2">
+          <button id="scroll-left-video"
+            class="p-2 rounded-lg bg-zinc-800 border border-zinc-700 text-white hover:bg-zinc-700 hover:border-red-500 transition cursor-pointer"
+            aria-label="Scroll videos left">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <button id="scroll-right-video"
+            class="p-2 rounded-lg bg-zinc-800 border border-zinc-700 text-white hover:bg-zinc-700 hover:border-red-500 transition cursor-pointer"
+            aria-label="Scroll videos right">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
         </div>
       </div>
     </div>

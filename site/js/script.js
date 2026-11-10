@@ -87,6 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('scroll-right')?.addEventListener('click', () => {
         document.getElementById('spotify-carousel')?.scrollBy({ left: 340, behavior: 'smooth' });
     });
+    document.getElementById('scroll-left-video')?.addEventListener('click', () => {
+        document.getElementById('video-carousel')?.scrollBy({ left: -340, behavior: 'smooth' });
+    });
+    document.getElementById('scroll-right-video')?.addEventListener('click', () => {
+        document.getElementById('video-carousel')?.scrollBy({ left: 340, behavior: 'smooth' });
+    });
 
     // --- Firestore Data Fetching (Only runs if upcomingList exists) ---
     if (document.getElementById("upcomingList")) {
