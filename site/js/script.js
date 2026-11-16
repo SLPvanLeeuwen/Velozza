@@ -48,25 +48,51 @@ function renderEventsInto(upcoming, past) {
         const bgUrl = ev.wallpaper || ev.poster || `materiaal/event-achtergronden/${randomBgIndex}.webp`;
 
         const card = document.createElement("div");
-        card.className = "group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 shadow-xl transition hover:border-red-500/60 p-4 md:p-6 flex flex-col justify-between min-h-[90px] md:min-h-[260px]";
+        card.className = "group overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 shadow-xl transition hover:border-red-500/60 flex flex-col justify-between";
 
         card.innerHTML = `
-            <div class="absolute inset-0 bg-cover bg-center opacity-40 md:opacity-50 group-hover:scale-105 transition duration-500" style="background-image: url('${bgUrl}');"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/50 z-[5]"></div>
-            <div class="relative z-10 flex justify-between items-start mb-2 md:mb-4">
-                <span class="inline-block bg-red-700/20 text-red-400 border border-red-500/30 text-[11px] md:text-xs font-bold px-2.5 py-1 rounded">${formatDate(ev.date)}</span>
-                ${ev.time ? `<span class="text-xs text-gray-400 font-medium hidden md:inline-block">${ev.time}</span>` : ''}
+            <!-- Top Section: Full Poster Image + Top Corner Labels -->
+            <div class="relative w-full bg-zinc-950 overflow-hidden">
+                <img 
+                    src="${bgUrl}" 
+                    alt="${ev.name}" 
+                    class="w-full h-auto max-h-[380px] object-contain mx-auto group-hover:scale-[1.03] transition duration-500"
+                    loading="lazy"
+                />
+                
+                <!-- Top Corner Badges -->
+                <div class="absolute top-3 inset-x-3 z-10 flex justify-between items-start gap-2 pointer-events-none">
+                    <span class="inline-block bg-zinc-950/85 backdrop-blur-sm text-red-400 border border-red-500/40 text-[11px] md:text-xs font-bold px-2.5 py-1 rounded shadow-md">
+                        ${formatDate(ev.date)}
+                    </span>
+                    ${ev.time ? `
+                    <span class="inline-block bg-zinc-950/85 backdrop-blur-sm text-gray-200 border border-white/10 text-[11px] md:text-xs font-medium px-2.5 py-1 rounded shadow-md">
+                        ${ev.time}
+                    </span>` : ''}
+                </div>
             </div>
-            <div class="relative z-10 space-y-1 md:space-y-2 mb-3 md:mb-4">
-                <h4 class="font-bold text-white text-base md:text-xl leading-tight group-hover:text-red-400 transition-colors">${ev.name}</h4>
-                <p class="text-xs md:text-sm text-gray-300 flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5 text-red-500 flex-shrink-0 hidden md:inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    <span class="truncate">${[ev.location, ev.city, ev.country].filter((v) => v && v.trim()).join(" — ")}</span>
-                </p>
-            </div>
-            <div class="relative z-10 pt-2 border-t border-white/10 flex items-center justify-between">
-                <span class="text-[11px] text-gray-400 md:hidden">${ev.time || ''}</span>
-                ${ev.link ? `<a href="${ev.link}" target="_blank" class="inline-flex items-center gap-1 text-xs font-bold text-white bg-red-600 hover:bg-red-700 px-3 py-1.5 rounded transition shadow cursor-pointer"><span>Tickets / Info</span></a>` : `<span class="text-xs text-gray-500 italic">Details soon</span>`}
+
+            <!-- Bottom Section: Event Details -->
+            <div class="p-4 md:p-5 flex flex-col flex-grow justify-between bg-zinc-900 border-t border-zinc-800/80">
+                <div class="space-y-1.5 mb-4">
+                    <h4 class="font-bold text-white text-base md:text-lg leading-tight group-hover:text-red-400 transition-colors">
+                        ${ev.name}
+                    </h4>
+                    <p class="text-xs md:text-sm text-gray-400 flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <span class="truncate">${[ev.location, ev.city, ev.country].filter((v) => v && v.trim()).join(" — ")}</span>
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-white/10 flex items-center justify-end">
+                    ${ev.link 
+                        ? `<a href="${ev.link}" target="_blank" class="w-full text-center inline-flex justify-center items-center gap-1 text-xs font-bold text-white bg-red-600 hover:bg-red-700 px-3 py-2 rounded transition shadow cursor-pointer"><span>Tickets / Info</span></a>` 
+                        : `<span class="text-xs text-gray-500 italic py-1">Details soon</span>`
+                    }
+                </div>
             </div>
         `;
         return card;
